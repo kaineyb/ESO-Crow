@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Main Page{% endblock %}
+{% block title %}Welcome{% endblock %}
 
 {% block head %}
     {{ super() }}
@@ -11,19 +11,23 @@
 
 {% block content %}
 
-    <h2>Hey welcome to ESO Crow<h2>
-    <p>Please enter a Source and Destination below. Thanks</p>
+<h1 class="cover-heading">Welcome to ESO Crow</h1>
+        <p class="lead">Please enter a Source and Destination below. </p>
+        <p class="lead">
 
-    <form action="{{ url_for('handle_data') }}" name='myform' id="myform" method="POST">
+        <form action="{{ url_for('handle_data') }}" name='myform' id="myform" method="POST">
 
-        <label for="source">Source:</label>
-        <input type="text" id="source" name="source"><br><br>
+        <p><label for="source"></label>
+        <input type="text" id="source" name="source">
 
-        <label for="destination">Destination:</label>
-        <input type="text" id="destination" name="destination"><br><br>
+        <label for="destination"></label>
+        <input type="text" id="destination" name="destination"></p>
         
-        <input type="submit" value="Submit">
+        <input class="btn btn-lg btn-secondary" type="submit" value="Submit">
     </form>
+        </p>
+
+
 
 {% endblock %}
 

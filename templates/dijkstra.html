@@ -11,28 +11,31 @@
 
 {% block content %}
 
+    {% if not error_message %}
+        <h2>Route found</h2>
+    {% endif %}
 
-    <h2>Route</h2>
+    {% if  error_message %}
+        <h2>Route not found :(</h2>
+        <p><strong>Error:</strong>  {{ error_message }}</p>
+    {% endif %}
+
     {% if pairs_list %}
         <p>We can do this in {{pairs_list|count}} steps</p>
         {% for pair in pairs_list %}
         
             {# source, target, label, npc #}
             <p>Step {{loop.index}}.
-                <a href="https://en.uesp.net/wiki/Online:{{ pair[0] }}">{{ pair[0] }}</a> to
-                <a href="https://en.uesp.net/wiki/Online:{{ pair[1] }}">{{ pair[1] }}</a> via 
-                <a href="https://en.uesp.net/wiki/Online:{{ pair[2] }}">{{ pair[2] }}</a> 
-                (<a href="https://en.uesp.net/wiki/Online:{{ pair[3] }}">{{ pair[3] }}</a>)
+                <b><a href="https://en.uesp.net/wiki/Online:{{ pair[0] }}">{{ pair[0] }}</a></b> to
+                <b><a href="https://en.uesp.net/wiki/Online:{{ pair[1] }}">{{ pair[1] }}</a></b> via 
+                <b><a href="https://en.uesp.net/wiki/Online:{{ pair[2] }}">{{ pair[2] }}</a> </b>
+                (<b><a href="https://en.uesp.net/wiki/Online:{{ pair[3] }}">{{ pair[3] }}</a></b>)
             </p>
            
         {% endfor %}
     {% endif %}
 
-    
-    {% if error_message %}
-        <h3>Error</h3>
-        <p> {{ error_message }}</p>
-    {% endif %}
+<a href="/" class="btn btn-lg btn-secondary">Another route?</a>
 
 {% endblock %}
 

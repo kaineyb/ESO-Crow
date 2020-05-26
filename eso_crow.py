@@ -15,32 +15,50 @@ def add_set_to_graph(setname, labelname):
 
 
 def dijkstra(source, target, test=False):
-
-    source = string.capwords(source)
-    target = string.capwords(target)
-
     try:
-        route = nx.dijkstra_path(G, source, target)
-        route_pairs = [(route[i], route[i+1])
-                       for i, _ in enumerate(route[:-1])]
+        source = string.capwords(source)
+        target = string.capwords(target)
 
-        pairs_list = []
-        for pairs in route_pairs:
-            (start, finish) = pairs
-            pairs_list.append(
-                [start, finish, att_label[pairs], att_npc[pairs]])
-        if test:
-            print(pairs_list)
-        return pairs_list
+        if not G.has_node(source) and not G.has_node(target):
+            error_message = "Both Source: {} and Destination: {} not found" .format(
+                source, target)
+            if test:
+                print(error_message)
+            return error_message
 
-    except nx.NodeNotFound:
-        error_message = "Source: {} not found" .format(source)
-        if test:
-            print(error_message)
-        return error_message
+        elif not G.has_node(source):
+            error_message = "Source: {} not found" .format(source)
+            if test:
+                print(error_message)
+            return error_message
+
+        elif not G.has_node(target):
+            error_message = "Destination: {} not found" .format(target)
+            if test:
+                print(error_message)
+            return error_message
+
+        else:
+            print("We're good")
+
+            route = nx.dijkstra_path(G, source, target)
+            route_pairs = [(route[i], route[i+1])
+                           for i, _ in enumerate(route[:-1])]
+
+            pairs_list = []
+
+            for pairs in route_pairs:
+                (start, finish) = pairs
+                pairs_list.append(
+                    [start, finish, att_label[pairs], att_npc[pairs]])
+
+            else:
+                if test:
+                    print(pairs_list)
+                return pairs_list
 
     except nx.exception.NetworkXNoPath:
-        error_message = "Cannot find a route between source and destination. Route may not be possible or {} doesn't exist" .format(
+        error_message = "Cannot find a route between source and destination. Route may not be possible." .format(
             target)
         if test:
             print(error_message)
@@ -66,7 +84,7 @@ add_set_to_graph(eso_routes.carts, 'Carts')
 att_npc = nx.get_edge_attributes(G, 'npc')
 att_label = nx.get_edge_attributes(G, 'label')
 
-s = r"daggerfall"
-t = "Tilbury"
+s = "Cheese"
+t = "Cheese"
 
-#dijkstra(s, t, test=True)
+dijkstra(s, t, test=True)
