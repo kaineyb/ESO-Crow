@@ -1,9 +1,14 @@
 <!doctype html>
 <title>Hello from Flask</title>
 
-
+{% if pairs_list %}
 {% for pair in pairs_list %}
 {# source, target, label, npc #}
   <p>{{ pair[0] }} to {{ pair[1] }} via {{ pair[2] }} ({{ pair[3] }})</p>
 {% endfor %}
+{% endif %}
+
+{% if error_message %}
+<p> {{ error_message }}</p>
+{% endif %}
 

@@ -19,21 +19,29 @@ def dijkstra(source, target):
     source = str.title(source)
     target = str.title(target)
 
-    route = nx.dijkstra_path(G, source, target)
-    route_pairs = [(route[i], route[i+1]) for i, _ in enumerate(route[:-1])]
+    try:
+        route = nx.dijkstra_path(G, source, target)
+        route_pairs = [(route[i], route[i+1])
+                       for i, _ in enumerate(route[:-1])]
 
-    pairs_list = []
-    for pairs in route_pairs:
-        (start, finish) = pairs
-        pairs_list.append([start, finish, att_label[pairs], att_npc[pairs]])
+        pairs_list = []
+        for pairs in route_pairs:
+            (start, finish) = pairs
+            pairs_list.append(
+                [start, finish, att_label[pairs], att_npc[pairs]])
+        return pairs_list
 
-    return pairs_list
+    except nx.NodeNotFound:
+        error_message = "Source location doesn't exist in my database - sorry :("
+        return error_message
 
-# def show_todo():
-# my_list = []
-# for key, value in cal.items():
-#     my_list.append([value[0], key])
-# return my_list
+    except nx.exception.NetworkXNoPath:
+        error_message = "Destination location doesn't exist in my databae - sorry: ("
+        return error_message
+
+    except:
+        error_message = "Something doesn't seem right there"
+        return error_message
 
 
 # Add Data to Graphs
@@ -49,4 +57,4 @@ add_set_to_graph(eso_routes.carts, 'Carts')
 att_npc = nx.get_edge_attributes(G, 'npc')
 att_label = nx.get_edge_attributes(G, 'label')
 
-dijkstra("Mournhold", "Alinor")
+#dijkstra("Mournhold", "Alinor")

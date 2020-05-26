@@ -21,5 +21,10 @@ def index():
 
 @ app.route('/crow/<source>/<target>')
 def dijkstra(source, target):
-    pairs_list = eso_crow.dijkstra(source, target)
-    return render_template('dijkstra.html', pairs_list=pairs_list)
+    result = eso_crow.dijkstra(source, target)
+
+    if type(result) == list:
+        return render_template('dijkstra.html', pairs_list=result)
+
+    else:
+        return render_template('dijkstra.html', error_message=result)
