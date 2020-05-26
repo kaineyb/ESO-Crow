@@ -1,9 +1,7 @@
-from flask import Flask, request, redirect, url_for
+from flask import Flask, request, redirect
 from flask import render_template
-from markupsafe import escape
 from flask_bootstrap import Bootstrap
 
-import hello
 import eso_crow
 
 
