@@ -8,18 +8,12 @@ import eso_crow
 app = Flask(__name__)
 
 
-@app.route('/hello/')
-@app.route('/hello/<name>')
-def hello(name=None):
-    return render_template('hello.html', name=name)
-
-
 @app.route('/')
 def index():
-    return 'Index'
+    return render_template('index.html')
 
 
-@ app.route('/crow/<source>/<target>')
+@ app.route('/<source>/<target>')
 def dijkstra(source, target):
     result = eso_crow.dijkstra(source, target)
 

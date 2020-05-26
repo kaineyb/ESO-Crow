@@ -1,14 +1,45 @@
-<!doctype html>
-<title>Hello from Flask</title>
+{% extends "base.html" %}
 
-{% if pairs_list %}
-{% for pair in pairs_list %}
-{# source, target, label, npc #}
-  <p>{{ pair[0] }} to {{ pair[1] }} via {{ pair[2] }} ({{ pair[3] }})</p>
-{% endfor %}
-{% endif %}
+{% block title %}Dijkstra{% endblock %}
 
-{% if error_message %}
-<p> {{ error_message }}</p>
-{% endif %}
+{% block head %}
+    {{ super() }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+{% endblock %}
+
+{% block content %}
+
+    <h2> Plain </h2>
+    {% if pairs_list %}
+        {% for pair in pairs_list %}
+            {# source, target, label, npc #}
+            <li>{{ pair[0] }} to {{ pair[1] }} via {{ pair[2] }} ({{ pair[3] }})</li>
+        {% endfor %}
+    {% endif %}
+
+    <h2> With Uesp Links </h2>
+    {% if pairs_list %}
+        <p>We can do this in {{pairs_list|count}} steps</p>
+        {% for pair in pairs_list %}
+        
+            {# source, target, label, npc #}
+            <p>Step {{loop.index}}.
+                <a href="https://en.uesp.net/wiki/Online:{{ pair[0] }}">{{ pair[0] }}</a> to
+                <a href="https://en.uesp.net/wiki/Online:{{ pair[1] }}">{{ pair[1] }}</a> via 
+                <a href="https://en.uesp.net/wiki/Online:{{ pair[2] }}">{{ pair[2] }}</a> 
+                (<a href="https://en.uesp.net/wiki/Online:{{ pair[3] }}">{{ pair[3] }}</a>)
+            </p>
+           
+        {% endfor %}
+    {% endif %}
+
+
+    {% if error_message %}
+        <p> {{ error_message }}</p>
+    {% endif %}
+
+{% endblock %}
+
 

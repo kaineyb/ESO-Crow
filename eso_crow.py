@@ -36,7 +36,7 @@ def dijkstra(source, target):
         return error_message
 
     except nx.exception.NetworkXNoPath:
-        error_message = "Destination location doesn't exist in my databae - sorry: ("
+        error_message = "Destination location doesn't exist in my database - sorry: ("
         return error_message
 
     except:
@@ -49,7 +49,7 @@ def dijkstra(source, target):
 add_set_to_graph(eso_routes.siltstriders, 'Siltstrider')
 add_set_to_graph(eso_routes.faction_boatswain, 'Boatswain')
 add_set_to_graph(eso_routes.boats, 'Boats')
-add_set_to_graph(eso_routes.navigator, 'Navigator')
+add_set_to_graph(eso_routes.navigator, 'Navigators')
 add_set_to_graph(eso_routes.carts, 'Carts')
 
 
