@@ -14,16 +14,20 @@ def add_set_to_graph(setname, labelname):
         G.add_edge(source, target, npc=npc_name, label=label_name)
 
 
-def dijkstra(source, target, verbose=False):
+def dijkstra(source, target):
+
+    source = str.title(source)
+    target = str.title(target)
+
     route = nx.dijkstra_path(G, source, target)
     route_pairs = [(route[i], route[i+1]) for i, _ in enumerate(route[:-1])]
 
     pairs_list = []
     for pairs in route_pairs:
-            (start, finish) = pairs
-            pairs_list.append([start, finish, att_label[pairs], att_npc[pairs]])
+        (start, finish) = pairs
+        pairs_list.append([start, finish, att_label[pairs], att_npc[pairs]])
 
-    return 'Dijkstra {}' . format(pairs_list)
+    return pairs_list
 
 # def show_todo():
 # my_list = []

@@ -1,24 +1,25 @@
 from flask import Flask
+from flask import render_template
+from markupsafe import escape
+
 import hello
 import eso_crow
 
 app = Flask(__name__)
 
-# @app.route('/<name>')
-# def index(name):
-#     return '<h1>Hello {}</h1>' . format(name)
 
-@app.route('/<name>')
-def name(name):
-    return hello.hello(name)
+@app.route('/hello/')
+@app.route('/hello/<name>')
+def hello(name=None):
+    return render_template('hello.html', name=name)
 
-@app.route('/fixed/<name>/<surname>/')
-def name_surname(name, surname):
-    return hello.surname(name, surname)
 
-@app.route('/crow/<source>/<target>')
-def dijkstra(source,target):
-    return eso_crow.dijkstra(source, target)
+@app.route('/')
+def index():
+    return 'Index'
 
-#print(hello.hello('Kaine'))
-#dijkstra("Mournhold", "Alinor")
+
+@ app.route('/crow/<source>/<target>')
+def dijkstra(source, target):
+    pairs_list = eso_crow.dijkstra(source, target)
+    return render_template('dijkstra.html', pairs_list=pairs_list)
