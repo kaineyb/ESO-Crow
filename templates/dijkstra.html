@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Dijkstra{% endblock %}
+{% block title %}Route{% endblock %}
 
 {% block head %}
     {{ super() }}
@@ -11,15 +11,8 @@
 
 {% block content %}
 
-    <h2> Plain </h2>
-    {% if pairs_list %}
-        {% for pair in pairs_list %}
-            {# source, target, label, npc #}
-            <li>{{ pair[0] }} to {{ pair[1] }} via {{ pair[2] }} ({{ pair[3] }})</li>
-        {% endfor %}
-    {% endif %}
 
-    <h2> With Uesp Links </h2>
+    <h2>Route</h2>
     {% if pairs_list %}
         <p>We can do this in {{pairs_list|count}} steps</p>
         {% for pair in pairs_list %}
@@ -35,8 +28,9 @@
         {% endfor %}
     {% endif %}
 
-
+    
     {% if error_message %}
+        <h3>Error</h3>
         <p> {{ error_message }}</p>
     {% endif %}
 

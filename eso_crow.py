@@ -1,5 +1,5 @@
 import networkx as nx
-
+import string
 import eso_routes
 
 G = nx.DiGraph()
@@ -14,10 +14,10 @@ def add_set_to_graph(setname, labelname):
         G.add_edge(source, target, npc=npc_name, label=label_name)
 
 
-def dijkstra(source, target):
+def dijkstra(source, target, test=False):
 
-    source = str.title(source)
-    target = str.title(target)
+    source = string.capwords(source)
+    target = string.capwords(target)
 
     try:
         route = nx.dijkstra_path(G, source, target)
@@ -29,18 +29,27 @@ def dijkstra(source, target):
             (start, finish) = pairs
             pairs_list.append(
                 [start, finish, att_label[pairs], att_npc[pairs]])
+        if test:
+            print(pairs_list)
         return pairs_list
 
     except nx.NodeNotFound:
-        error_message = "Source location doesn't exist in my database - sorry :("
+        error_message = "Source: {} not found" .format(source)
+        if test:
+            print(error_message)
         return error_message
 
     except nx.exception.NetworkXNoPath:
-        error_message = "Destination location doesn't exist in my database - sorry: ("
+        error_message = "Cannot find a route between source and destination. Route may not be possible or {} doesn't exist" .format(
+            target)
+        if test:
+            print(error_message)
         return error_message
 
     except:
         error_message = "Something doesn't seem right there"
+        if test:
+            print(error_message)
         return error_message
 
 
@@ -57,4 +66,7 @@ add_set_to_graph(eso_routes.carts, 'Carts')
 att_npc = nx.get_edge_attributes(G, 'npc')
 att_label = nx.get_edge_attributes(G, 'label')
 
-#dijkstra("Mournhold", "Alinor")
+s = r"daggerfall"
+t = "Tilbury"
+
+#dijkstra(s, t, test=True)

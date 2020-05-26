@@ -4,18 +4,27 @@
     <head>
         {% block head %}
         <link rel="stylesheet" href="style.css" />
-        <title>{% block title %}{% endblock %} - ESO-Crow</title>
+        <title>{% block title %}{% endblock %} - ESO Crow</title>
         {% endblock %}
     </head>
 
     <body>
 
-        <h1>ESO Crow - Sexy H1</h1>
+        <h1>ESO Crow</h1>
+
+        <nav>
+        <a href='/'>Home</a> | 
+        <a href="/alten corimont/rawl'kha">Route Example</a>
+        </nav>
+
+        ------------------------------
 
         <div id="content">
             {% block content %}
             {% endblock %}
         </div>
+
+        ------------------------------
 
         <div id="footer">
             {% block footer %}
