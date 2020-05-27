@@ -30,11 +30,6 @@ def tip():
     return render_template('tip.html')
 
 
-@app.route('/bootstrap')
-def bootstrap():
-    return render_template('bootstrap.html')
-
-
 @app.route('/faq')
 def faq():
     return render_template('faq.html')
