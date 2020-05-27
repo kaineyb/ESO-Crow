@@ -50,10 +50,18 @@ def dijkstra(source, target, test=False):
                 pairs_list.append(
                     [start, finish, att_label[pairs], att_npc[pairs]])
 
-            if test:
-                print("We're good")
-                print(pairs_list)
-            return pairs_list
+            if len(pairs_list) > 0:
+                if test:
+                    print("We're good")
+                    print(pairs_list)
+                return pairs_list
+
+            else:
+                error_message = "Source and Destination are the same!"
+                if test:
+                    print("We're not good")
+                    print(error_message)
+                return error_message
 
     except nx.exception.NetworkXNoPath:
         error_message = "Cannot find a route between source and destination. Route not possible."
@@ -75,7 +83,7 @@ add_set_to_graph(eso_routes.carts, 'Carts')
 att_npc = nx.get_edge_attributes(G, 'npc')
 att_label = nx.get_edge_attributes(G, 'label')
 
-S = "Rawl'kha"
-T = "Daggerfall"
+S = "Daggerfall"
+T = "Rawl'kha"
 
-#dijkstra(S, T, test=True)
+dijkstra(S, T, test=True)

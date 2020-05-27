@@ -21,20 +21,26 @@
         <p><strong>Error:</strong>  {{ error_message }}</p>
     {% endif %}
 
+<div class="container">
     {% if pairs_list %}
         <p>We can do this in {{pairs_list|count}} steps</p>
         {% for pair in pairs_list %}
-        
-            {# source, target, label, npc #}
-            <p>Step {{loop.index}}.
-                <b><a href="https://en.uesp.net/wiki/Online:{{ pair[0] }}">{{ pair[0] }}</a></b> to
-                <b><a href="https://en.uesp.net/wiki/Online:{{ pair[1] }}">{{ pair[1] }}</a></b> via 
-                <b><a href="https://en.uesp.net/wiki/Online:{{ pair[2] }}">{{ pair[2] }}</a> </b>
-                (<b><a href="https://en.uesp.net/wiki/Online:{{ pair[3] }}">{{ pair[3] }}</a></b>)
-            </p>
-           
+
+    <div class="row">
+        <div class="col-2 p-3 mb-2 bg-dark text-white text-left">
+            <span class=" badge badge-secondary font-italic text-left">Step {{loop.index}}</span>
+        </div>
+        <div class="col p-3 mb-2 bg-dark text-white text-left">
+            <span class="font-weight-bold"><a href="https://en.uesp.net/wiki/Online:{{ pair[0] }}">{{ pair[0] }}</a></span> to
+            <span class="font-weight-bold"><a href="https://en.uesp.net/wiki/Online:{{ pair[1] }}">{{ pair[1] }}</a></span> via 
+            <span class="font-weight-bold"><a href="https://en.uesp.net/wiki/Online:{{ pair[2] }}">{{ pair[2] }}</a></span>
+            (<span class="font-weight-bold"><a href="https://en.uesp.net/wiki/Online:{{ pair[3] }}">{{ pair[3] }}</a></span>)
+
+        </div>
+    </div>
         {% endfor %}
     {% endif %}
+</div>
 
 <a href="/" class="btn btn-lg btn-secondary">Another route?</a>
 
