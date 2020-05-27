@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% set active_page = "updates" %}
+
+{% block title %}Updates{% endblock %}
+
+{% block head %}
+    {{ super() }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+{% endblock %}
+
+{% block content %}
+
+<h1 class="cover-heading">Updates</h1>
+
+        <div class="p-3 mb-2 text-left bg-dark text-white">
+        <p><span class="font-weight-bold">Wednesday 27th May 2020</span>
+        <li>You can now use <span class="font-weight-bold"><a href="http://esocrow.com">esocrow.com</a></span> as it now redirects here</li>
+        <li>Added autocomplete</li>
+        </div>
+
+        <div class="p-3 mb-2 text-left bg-dark text-white">
+        <p><span class="font-weight-bold">Tuesday 26th May 2020</span>
+        <p>Intial implemention.</p>
+        </div>
+
+{% endblock %}
+
+

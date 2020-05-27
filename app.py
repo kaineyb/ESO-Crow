@@ -15,14 +15,9 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/about')
-def about():
-    return render_template('about.html')
-
-
-@app.route('/select')
-def select():
-    return render_template('select.html')
+@app.route('/updates')
+def updates():
+    return render_template('updates.html')
 
 
 @app.route('/tip')
@@ -39,7 +34,7 @@ def faq():
 def dijkstra(source, target):
     result = eso_crow.dijkstra(source, target)
 
-    if type(result) == list:
+    if isinstance(result, list):
         return render_template('dijkstra.html', pairs_list=result)
 
     else:
@@ -50,4 +45,11 @@ def dijkstra(source, target):
 def handle_data():
     source = request.form['source']
     target = request.form['destination']
-    return redirect('/' + source + '/' + target)
+    print(source)
+    print(target)
+
+    if len(source) > 0 and len(target) > 0:
+        url = redirect('/' + source + '/' + target)
+    else:
+        url = redirect('/')
+    return url

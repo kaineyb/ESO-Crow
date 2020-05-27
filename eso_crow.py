@@ -1,5 +1,5 @@
-import networkx as nx
 import string
+import networkx as nx
 import eso_routes
 
 G = nx.DiGraph()
@@ -39,9 +39,6 @@ def dijkstra(source, target, test=False):
             return error_message
 
         else:
-            if test:
-                print("We're good")
-
             route = nx.dijkstra_path(G, source, target)
             route_pairs = [(route[i], route[i+1])
                            for i, _ in enumerate(route[:-1])]
@@ -53,20 +50,13 @@ def dijkstra(source, target, test=False):
                 pairs_list.append(
                     [start, finish, att_label[pairs], att_npc[pairs]])
 
-            else:
-                if test:
-                    print(pairs_list)
-                return pairs_list
+            if test:
+                print("We're good")
+                print(pairs_list)
+            return pairs_list
 
     except nx.exception.NetworkXNoPath:
-        error_message = "Cannot find a route between source and destination. Route may not be possible." .format(
-            target)
-        if test:
-            print(error_message)
-        return error_message
-
-    except:
-        error_message = "Something doesn't seem right there"
+        error_message = "Cannot find a route between source and destination. Route not possible."
         if test:
             print(error_message)
         return error_message
@@ -85,7 +75,7 @@ add_set_to_graph(eso_routes.carts, 'Carts')
 att_npc = nx.get_edge_attributes(G, 'npc')
 att_label = nx.get_edge_attributes(G, 'label')
 
-s = "Rawl'kha"
-t = "Daggerfall"
+S = "Rawl'kha"
+T = "Daggerfall"
 
-#dijkstra(s, t, test=True)
+#dijkstra(S, T, test=True)
