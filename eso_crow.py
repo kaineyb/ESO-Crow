@@ -39,7 +39,8 @@ def dijkstra(source, target, test=False):
             return error_message
 
         else:
-            print("We're good")
+            if test:
+                print("We're good")
 
             route = nx.dijkstra_path(G, source, target)
             route_pairs = [(route[i], route[i+1])
@@ -84,7 +85,7 @@ add_set_to_graph(eso_routes.carts, 'Carts')
 att_npc = nx.get_edge_attributes(G, 'npc')
 att_label = nx.get_edge_attributes(G, 'label')
 
-s = "Cheese"
-t = "Cheese"
+s = "Rawl'kha"
+t = "Daggerfall"
 
-dijkstra(s, t, test=True)
+#dijkstra(s, t, test=True)

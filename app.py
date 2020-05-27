@@ -20,6 +20,11 @@ def about():
     return render_template('about.html')
 
 
+@app.route('/select')
+def select():
+    return render_template('select.html')
+
+
 @app.route('/tip')
 def tip():
     return render_template('tip.html')
@@ -28,6 +33,11 @@ def tip():
 @app.route('/bootstrap')
 def bootstrap():
     return render_template('bootstrap.html')
+
+
+@app.route('/faq')
+def faq():
+    return render_template('faq.html')
 
 
 @app.route('/<source>/<target>')

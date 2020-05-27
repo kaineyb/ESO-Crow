@@ -27,10 +27,13 @@
                   }
                 </style>
           <!-- Custom styles for this template -->
-          <link href="/static/cover.css" rel="stylesheet">
+          <link href="/static/css/cover.css" rel="stylesheet">
+          <link href="/static/css/typeahead.css" rel="stylesheet">
+          <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+          <script src="static/js/typeahead.bundle.min.js"></script>
         
           {% endblock %}
-
+      
     
 
     <title>{% block title %}{% endblock %} - ESO Crow</title>
@@ -43,11 +46,15 @@
     <div class="inner">
       <h3 class="masthead-brand">ESO Crow</h3>
 
+
+      
+
       <nav class="nav nav-masthead justify-content-center">
-        <a class="nav-link active" href="/">Home</a>
-        <a class="nav-link" href="/about">About</a>
-        <a class="nav-link" href="/tip">Tip</a>
-        <a class="nav-link" href="/bootstrap">Bootstrap</a>
+        <a class="nav-link {% if active_page == "index" %}active{% endif %}" href="/">home</a>
+        <a class="nav-link {% if active_page == "route" %}active{% endif %}" href="/alten%20corimont/gnisis">example route</a>
+        <a class="nav-link {% if active_page == "faq"  %}active{% endif %}" href="/faq">FAQ</a>
+        <a class="nav-link {% if active_page == "about"  %}active{% endif %}" href="/about">about</a>
+        <a class="nav-link {% if active_page == "tip"  %}active{% endif %}" href="/tip">tip</a>
       </nav>
     </div>
   </header>
@@ -63,7 +70,7 @@
     <footer class="mastfoot mt-auto">
       {% block footer %}
       <div class="inner">
-        <p>&copy; Copyright 2020.</p>
+        <p>&copy;  2020</p>
       </div>
       {% endblock %}
     </footer>
@@ -72,6 +79,7 @@
 </div>
         {% block scripts %}
             <!-- Optional JavaScript -->
+            <script src="/static/js/eso.js"></script>
             {{ bootstrap.load_js() }}
         {% endblock %}
 </body>
