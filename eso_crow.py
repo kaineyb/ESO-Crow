@@ -2,7 +2,28 @@ import string
 import networkx as nx
 import eso_routes
 
+
+# TODO Make Locations automatic and also feed typeahead.
+
+# TODO See TODO on eso_routes.py
+
+
 G = nx.DiGraph()
+
+
+def get_node_routes(node):
+    try:
+        node = string.capwords(node)
+        all_edges = dict(nx.all_pairs_dijkstra_path_length(G))
+        data = all_edges[node]
+        data = {k: v for k, v in sorted(
+            data.items(), key=lambda item: item[0])}
+        del data[node]
+        return data
+
+    except KeyError:
+        error_message = "Sorry that location wasn't found :("
+        return error_message
 
 
 def add_set_to_graph(setname, labelname):
@@ -64,7 +85,8 @@ def dijkstra(source, target, test=False):
                 return error_message
 
     except nx.exception.NetworkXNoPath:
-        error_message = "Cannot find a route between source and destination. Route not possible."
+        error_message = "Cannot find a route between {} and {}. Route not possible." .format(
+            source, target)
         if test:
             print(error_message)
         return error_message
@@ -72,8 +94,8 @@ def dijkstra(source, target, test=False):
 
 # Add Data to Graphs
 # AddSetToGraph(siltstriders, 'Siltstrider')
-add_set_to_graph(eso_routes.siltstriders, 'Siltstrider')
-add_set_to_graph(eso_routes.faction_boatswain, 'Boatswain')
+add_set_to_graph(eso_routes.siltstriders, 'Silt Strider')
+add_set_to_graph(eso_routes.faction_boatswain, 'Boatswains')
 add_set_to_graph(eso_routes.boats, 'Boats')
 add_set_to_graph(eso_routes.navigator, 'Navigators')
 add_set_to_graph(eso_routes.carts, 'Carts')
@@ -86,4 +108,6 @@ att_label = nx.get_edge_attributes(G, 'label')
 S = "Daggerfall"
 T = "Rawl'kha"
 
-dijkstra(S, T, test=True)
+# dijkstra(S, T, test=True)
+
+# print(get_node_routes('Alinor'))

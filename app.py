@@ -1,8 +1,13 @@
+import string
+
 from flask import Flask, request, redirect
 from flask import render_template
 from flask_bootstrap import Bootstrap
 
+
+# My stuff:
 import eso_crow
+import locations
 
 
 app = Flask(__name__)
@@ -41,15 +46,35 @@ def dijkstra(source, target):
         return render_template('dijkstra.html', error_message=result)
 
 
+@app.route('/<node>')
+def node_page(node):
+    result = eso_crow.get_node_routes(node)
+
+    node = string.capwords(node)
+
+    if isinstance(result, dict):
+        return render_template('node.html', node=node, edges=result)
+
+    else:
+        return render_template('node.html', node=node, error_message=result)
+
+
+@app.route('/locations')
+def get_locations():
+    return render_template('locations.html', locations=locations.locations)
+
+
 @app.route('/handle_data', methods=['POST'])
 def handle_data():
     source = request.form['source']
     target = request.form['destination']
-    print(source)
-    print(target)
 
-    if len(source) > 0 and len(target) > 0:
+    if len(source) > 0:
+        url = redirect('/' + source)
+
+    elif len(source) > 0 and len(target) > 0:
         url = redirect('/' + source + '/' + target)
+
     else:
         url = redirect('/')
     return url

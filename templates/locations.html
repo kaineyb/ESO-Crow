@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% set active_page = "locations" %}
+
+{% block title %}Locations{% endblock %}
+
+{% block head %}
+    {{ super() }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+{% endblock %}
+
+{% block content %}
+
+<h3>Locations</h3>
+
+{% if locations %}
+        <p>We currently have {{locations|count}} Locations</p>
+
+        <div class="container mb-0 p-3 bg-dark">
+        <ol class='node-list'>
+        {% for location in locations %}
+            <li> <b><a href="{{ location }}">{{ location }}</a></b> </li>
+        {% endfor %}
+        </ol>
+        </div>
+{% endif %}
+
+
+{% endblock %}
+
+

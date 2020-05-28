@@ -4,3 +4,27 @@ img {
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(35, 47, 53, 0.15);
 }
+
+/* .node-container {
+  margin: auto;
+} */
+
+.node-list {
+  margin: inherit;
+  /* border: red 5px solid; */
+  height: 50%;
+  width: 450px;
+  -webkit-column-count: 2;
+  -webkit-column-gap: 0;
+  text-align: left;
+}
+
+.fly {
+  background-color: #212529;
+  color: white;
+  font-style: italic;
+}
+
+.fly:hover {
+  text-decoration: underline;
+}
