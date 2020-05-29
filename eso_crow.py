@@ -39,12 +39,15 @@ def how_to_get_to(node):
         data = dict(nx.single_target_shortest_path_length(G, node))
         data = sort_dict(data)
         del data[node]
-        print('Before sort', data)
         return data
 
     except KeyError:
         # Doesn't actually get shown anywhere, but needs to *not* be a dict.
         error_message = "Sorry that location wasn't found :("
+        return error_message
+
+    except nx.NodeNotFound:
+        error_message = "Node Not Found!"
         return error_message
 
 
@@ -145,8 +148,8 @@ T = "stros m'kai"
 # dijkstra(S, T, test=True)
 
 # print("Where you can go from: ", get_node_routes('Daggerfall'))
-print('-'*20)
-how_to_get_to('Lilmoth')
+# print('-'*20)
+# how_to_get_to('Lilmoth')
 
 
 # Feeds /locations

@@ -23,7 +23,7 @@
         {% else %}
             <h2>{{ node }}</h2>
 
-            <p>Travelling from {{ node }} you can get to the places below (the number is how many steps)</p>
+            <p>Travelling from {{ node }} you can get to the places below</p>
 
         {% endif %}
 
@@ -65,7 +65,7 @@
         {% endif %}
 
 {% if how_to_get_to %}
-<div class="container mb-0 p-3 bg-dark"> 
+<div class="container mb-5 mt-5 p-3 bg-dark"> 
 
     <ul class='node-list'>
     {% for key, value in how_to_get_to.items() %}

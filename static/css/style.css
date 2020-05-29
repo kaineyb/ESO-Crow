@@ -10,13 +10,17 @@ img {
 } */
 
 .node-list {
-  margin: inherit;
-  /* border: red 5px solid; */
-  height: 50%;
-  width: 450px;
+  margin: auto auto;
+  border: red 1px solid;
   -webkit-column-count: 2;
-  -webkit-column-gap: 0;
+  -webkit-column-gap: 25px;
   text-align: left;
+  list-style: none;
+  padding-inline-start: 0px;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
 }
 
 .fly {
