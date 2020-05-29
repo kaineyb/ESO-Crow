@@ -32,3 +32,15 @@ img {
 .fly:hover {
   text-decoration: underline;
 }
+
+.subheader {
+  position: relative;
+  top: -25px;
+  left: 15px;
+}
+
+.crow {
+  width: 50px;
+  position: relative;
+  top: 5px;
+}
