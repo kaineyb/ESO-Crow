@@ -11,7 +11,7 @@ img {
 
 .node-list {
   margin: auto auto;
-  border: red 1px solid;
+  /* border: red 1px solid; */
   -webkit-column-count: 2;
   -webkit-column-gap: 25px;
   text-align: left;
