@@ -21,7 +21,9 @@ siltstriders = [
     ("Vivec", "Balmora", "Helseth Sadalvel"),
     ("Vivec", "Gnisis", "Helseth Sadalvel"),
     ("Vivec", "Suran", "Helseth Sadalvel"),
-    ("Vivec", "Tel Mora", "Helseth Sadalvel")
+    ("Vivec", "Tel Mora", "Helseth Sadalvel"),
+
+    ("Brentwood", "Shenfield", "Brentwood Station")
 ]
 
 faction_boatswain = [
@@ -74,7 +76,6 @@ faction_boatswain = [
 
 # TODO Found more Boatswains like Taros in Seyda Need. Few missing?
 
-# TODO - Murkmire boat? Lilmoth?
 
 boats = [
     ("Abah's Landing", "Vivec", "Unnamed Sailboat"),  # One way

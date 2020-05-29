@@ -3,7 +3,8 @@ import networkx as nx
 import eso_routes
 
 
-# TODO Make Locations automatic and also feed typeahead.
+# DONE Make Locations automatic
+# DONE and also feed typeahead.
 
 # TODO See TODO on eso_routes.py
 
@@ -23,6 +24,7 @@ def get_node_routes(node):
         return data
 
     except KeyError:
+        # Doesn't actually get shown anywhere, but needs to *not* be a dict.
         error_message = "Sorry that location wasn't found :("
         return error_message
 
@@ -124,3 +126,8 @@ T = "stros m'kai"
 # dijkstra(S, T, test=True)
 
 # print(get_node_routes('Alinor'))
+
+
+# Feeds /locations
+locations = G.nodes
+locations = sorted(locations)

@@ -7,7 +7,6 @@ from flask_bootstrap import Bootstrap
 
 # My stuff:
 import eso_crow
-import locations
 
 
 app = Flask(__name__)
@@ -17,7 +16,7 @@ bootstrap = Bootstrap(app)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html', locations=eso_crow.locations)
 
 
 @app.route('/updates')
@@ -58,12 +57,12 @@ def node_page(node):
         return render_template('node.html', node=node, edges=result)
 
     else:
-        return render_template('node.html', node=node, error_message=result)
+        return render_template('page_not_found.html'), 404
 
 
 @app.route('/locations')
 def get_locations():
-    return render_template('locations.html', locations=locations.locations)
+    return render_template('locations.html', locations=eso_crow.locations)
 
 
 @app.route('/handle_data', methods=['POST'])
@@ -80,3 +79,8 @@ def handle_data():
     else:
         url = redirect('/')
     return url
+
+
+@app.errorhandler(404)
+def page_not_found():
+    return render_template('page_not_found.html'), 404

@@ -20,53 +20,12 @@ var substringMatcher = function (strs) {
   };
 };
 
-var nodes = [
-  "Balmora",
-  "Gnisis",
-  "Vivec",
-  "Molag Mar",
-  "Suran",
-  "Tel Mora",
-  "Seyda Neen",
-  "Vulkhel Guard",
-  "Khenarthi's Roost",
-  "Skywatch",
-  "Haven",
-  "Daggerfall",
-  "Stros M'Kai",
-  "Betnikh",
-  "Wayrest",
-  "Sentinel",
-  "Bleakrock Isle",
-  "Davon's Watch",
-  "Dhalmora",
-  "Alten Corimont",
-  "Windhelm",
-  "Abah's Landing",
-  "Woodhearth",
-  "Anvil",
-  "Shimmerene",
-  "Lilmoth",
-  "Mournhold",
-  "Elden Root",
-  "Rawl'kha",
-  "Vulkwasten",
-  "Shornhelm",
-  "Stormhold",
-  "Evermore",
-  "Riften",
-  "Sadrith Mora",
-  "Alinor",
-  "Orsinium",
-  "Belkarth",
-];
-
 // constructs the suggestion engine
-var nodes = new Bloodhound({
+var locations = new Bloodhound({
   datumTokenizer: Bloodhound.tokenizers.whitespace,
   queryTokenizer: Bloodhound.tokenizers.whitespace,
   // `states` is an array of state names defined in "The Basics"
-  local: nodes,
+  local: locations,
 });
 
 $("#bloodhound .typeahead").typeahead(
@@ -76,7 +35,7 @@ $("#bloodhound .typeahead").typeahead(
     minLength: 1,
   },
   {
-    name: "nodes",
-    source: nodes,
+    name: "locations",
+    source: locations,
   }
 );
