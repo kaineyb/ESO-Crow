@@ -12,15 +12,34 @@ import eso_routes
 G = nx.DiGraph()
 
 
+def sort_dict(my_dict):
+    new_dict = dict(
+        [v for v in sorted(my_dict.items(), key=lambda kv: (kv[1], kv[0]))])
+    return new_dict
+
+
 def get_node_routes(node):
     try:
-        node = string.capwords(node)
-        node = is_stros_mkai(node)
+        node = string.capwords(is_stros_mkai(node))
         all_edges = dict(nx.all_pairs_dijkstra_path_length(G))
-        data = all_edges[node]
-        data = {k: v for k, v in sorted(
-            data.items(), key=lambda item: item[0])}
+        data = sort_dict(all_edges[node])
+        # Deletes the node requested as it will return 0
         del data[node]
+        return data
+
+    except KeyError:
+        # Doesn't actually get shown anywhere, but needs to *not* be a dict.
+        error_message = "Sorry that location wasn't found :("
+        return error_message
+
+
+def how_to_get_to(node):
+    try:
+        node = string.capwords(is_stros_mkai(node))
+        data = dict(nx.single_target_shortest_path_length(G, node))
+        data = sort_dict(data)
+        del data[node]
+        print('Before sort', data)
         return data
 
     except KeyError:
@@ -125,7 +144,9 @@ T = "stros m'kai"
 
 # dijkstra(S, T, test=True)
 
-# print(get_node_routes('Alinor'))
+# print("Where you can go from: ", get_node_routes('Daggerfall'))
+print('-'*20)
+how_to_get_to('Lilmoth')
 
 
 # Feeds /locations
