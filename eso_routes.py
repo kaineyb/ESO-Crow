@@ -21,9 +21,7 @@ siltstriders = [
     ("Vivec", "Balmora", "Helseth Sadalvel"),
     ("Vivec", "Gnisis", "Helseth Sadalvel"),
     ("Vivec", "Suran", "Helseth Sadalvel"),
-    ("Vivec", "Tel Mora", "Helseth Sadalvel"),
-
-    ("Brentwood", "Shenfield", "Brentwood Station")
+    ("Vivec", "Tel Mora", "Helseth Sadalvel")
 ]
 
 faction_boatswain = [
