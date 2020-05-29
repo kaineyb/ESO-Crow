@@ -14,6 +14,7 @@ G = nx.DiGraph()
 def get_node_routes(node):
     try:
         node = string.capwords(node)
+        node = isStrosMKai(node)
         all_edges = dict(nx.all_pairs_dijkstra_path_length(G))
         data = all_edges[node]
         data = {k: v for k, v in sorted(
@@ -35,10 +36,22 @@ def add_set_to_graph(setname, labelname):
         G.add_edge(source, target, npc=npc_name, label=label_name)
 
 
+def isStrosMKai(source_or_destination):
+
+    stros_mkai = "Stros M'Kai"
+    if source_or_destination.lower() == stros_mkai.lower():
+        source_or_destination = ("Stros M'Kai")
+
+    return source_or_destination
+
+
 def dijkstra(source, target, test=False):
     try:
         source = string.capwords(source)
         target = string.capwords(target)
+
+        source = isStrosMKai(source)
+        target = isStrosMKai(target)
 
         if not G.has_node(source) and not G.has_node(target):
             error_message = "Both Source: {} and Destination: {} not found" .format(
@@ -105,8 +118,8 @@ add_set_to_graph(eso_routes.carts, 'Carts')
 att_npc = nx.get_edge_attributes(G, 'npc')
 att_label = nx.get_edge_attributes(G, 'label')
 
-S = "Daggerfall"
-T = "Rawl'kha"
+S = "daggerfall"
+T = "stros m'kai"
 
 # dijkstra(S, T, test=True)
 

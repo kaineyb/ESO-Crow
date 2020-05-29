@@ -52,6 +52,8 @@ def node_page(node):
 
     node = string.capwords(node)
 
+    node = eso_crow.isStrosMKai(node)
+
     if isinstance(result, dict):
         return render_template('node.html', node=node, edges=result)
 
@@ -69,7 +71,7 @@ def handle_data():
     source = request.form['source']
     target = request.form['destination']
 
-    if len(source) > 0:
+    if len(source) > 0 and len(target) == 0:
         url = redirect('/' + source)
 
     elif len(source) > 0 and len(target) > 0:

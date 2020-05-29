@@ -36,7 +36,6 @@ locations = [
     "Sadrith Mora",
     "Alinor",
     "Orsinium",
-    "Vulhkel Guard",
     "Belkarth",
 ]
 
