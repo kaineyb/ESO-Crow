@@ -95,7 +95,7 @@ boats = [
     ("Daggerfall", "Vulkhel Guard", "The Lydia"),
 
     #  Murkmire Boat
-    ("Daggerfall", "Murkmire", "Southern Dock - Murkmire Boat"),
+    ("Daggerfall", "Lilmoth", "Southern Dock - Murkmire Boat"),
 
     # Davon's Watch
     ("Davon's Watch", "Anvil", "Harbor Skiff"),
@@ -112,7 +112,7 @@ boats = [
     ("Vulkhel Guard", "Anvil", "Harbor Skiff"),
     ("Vulkhel Guard", "Davon's Watch", "Harbor Skiff"),
     ("Vulkhel Guard", "Daggerfall", "The Interim Suitor"),
-    ("Vulkhel Guard", "Murkmire", "Murkmire Boat"),
+    ("Vulkhel Guard", "Lilmoth", "Murkmire Boat"),
 
     # Wayrest
     ("Wayrest", "Vivec", "Unnamed Sailboat"),  # One way

@@ -14,7 +14,7 @@ G = nx.DiGraph()
 def get_node_routes(node):
     try:
         node = string.capwords(node)
-        node = isStrosMKai(node)
+        node = is_stros_mkai(node)
         all_edges = dict(nx.all_pairs_dijkstra_path_length(G))
         data = all_edges[node]
         data = {k: v for k, v in sorted(
@@ -36,7 +36,7 @@ def add_set_to_graph(setname, labelname):
         G.add_edge(source, target, npc=npc_name, label=label_name)
 
 
-def isStrosMKai(source_or_destination):
+def is_stros_mkai(source_or_destination):
 
     stros_mkai = "Stros M'Kai"
     if source_or_destination.lower() == stros_mkai.lower():
@@ -50,8 +50,8 @@ def dijkstra(source, target, test=False):
         source = string.capwords(source)
         target = string.capwords(target)
 
-        source = isStrosMKai(source)
-        target = isStrosMKai(target)
+        source = is_stros_mkai(source)
+        target = is_stros_mkai(target)
 
         if not G.has_node(source) and not G.has_node(target):
             error_message = "Both Source: {} and Destination: {} not found" .format(

@@ -46,7 +46,7 @@ var nodes = [
   "Woodhearth",
   "Anvil",
   "Shimmerene",
-  "Murkmire",
+  "Lilmoth",
   "Mournhold",
   "Elden Root",
   "Rawl'kha",

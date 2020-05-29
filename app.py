@@ -52,7 +52,7 @@ def node_page(node):
 
     node = string.capwords(node)
 
-    node = eso_crow.isStrosMKai(node)
+    node = eso_crow.is_stros_mkai(node)
 
     if isinstance(result, dict):
         return render_template('node.html', node=node, edges=result)
