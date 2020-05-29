@@ -3,12 +3,6 @@ import networkx as nx
 import eso_routes
 
 
-# DONE Make Locations automatic
-# DONE and also feed typeahead.
-
-# TODO See TODO on eso_routes.py
-
-
 G = nx.DiGraph()
 
 
