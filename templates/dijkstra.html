@@ -32,10 +32,11 @@
             <span class="badge badge-secondary font-italic text-left">Step {{loop.index}}</span>
         </div>
         <div class="col line-height p-1 pl-2">
-            <span class="font-weight-bold"><a href="/{{ pair[0] }}">{{ pair[0] }}</a></span> to
-            <span class="font-weight-bold"><a href="/{{ pair[1] }}">{{ pair[1] }}</a></span> via 
-            <span class="font-weight-bold"><a href="https://en.uesp.net/wiki/Online:{{ pair[2] }}">{{ pair[2] }}</a></span>
-            (<span class="font-weight-bold"><a href="https://en.uesp.net/wiki/Online:{{ pair[3] }}">{{ pair[3] }}</a></span>)
+            <a href="/{{ pair[0] }}">{{ pair[0] }}</a> to
+            <a href="/{{ pair[1] }}">{{ pair[1] }}</a> via 
+            <a href="https://en.uesp.net/wiki/Online:{{ pair[2] }}">{{ pair[2] }}</a>
+            (<a href="https://en.uesp.net/wiki/Online:{{ pair[3] }}">{{ pair[3] }})</a>
+            <br>{{ pair[4] }} ({{ pair[5]}})
 
         </div>
     </div>

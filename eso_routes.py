@@ -30,7 +30,7 @@ faction_boatswain = [
     # Aldmeri Dominion
     # Sugar-Claws will take you both ways
     ("Vulkhel Guard", "Khenarthi's Roost", "Sugar-Claws"),
-    ("Khenarthi's Roost", "Khenarthi's Roost", "Sugar-Claws"),
+    ("Khenarthi's Roost", "Vulkhel Guard", "Sugar-Claws"),
 
     # Scout Linimondil will take you both ways
     ("Skywatch", "Haven", "Scout Linimondil"),
@@ -56,6 +56,7 @@ faction_boatswain = [
 
     # TODO Need to check that Dasta can take you both ways or not.
     # TODO Also not on ESO Transport map?
+    # Dastas Arenim is not here if you've evactuated Bleakrock Isle!
     ("Bleakrock Isle", "Seyda Neen", "Dastas Arenim"),
 
     ("Bleakrock Isle", "Davon's Watch", "Liezl"),
@@ -71,8 +72,6 @@ faction_boatswain = [
     ("Alten Corimont", "Windhelm", "Muz-Muz"),
     ("Windhelm", "Alten Corimont", "Muz-Muz"),
 ]
-
-# TODO Found more Boatswains like Taros in Seyda Need. Few missing?
 
 
 boats = [
@@ -240,9 +239,28 @@ navigator = [
     ("Vivec", "Mournhold", "Synda Imyam"),
     ("Vivec", "Wayrest", "Synda Imyam"),
 
-    # TODO - CHECK Summerset - Ciryelda - also found in Stros M'Kai?
+    # Taros Evosa
+    ("Seyda Neen", "Bleakrock Isle", "Taros Evosa"),
+    ("Seyda Neen", "Stros M'Kai", "Taros Evosa"),
+    ("Seyda Neen", "Khenarthi's Roost", "Taros Evosa"),
+
+    # Davak Hlaren
+    ("Stros M'Kai", "Seyda Neen", "Davak Hlaren"),
+
+    # Sathasa Falen
+    ("Khenarthi's Roost", "Seyda Neen", "Sathasa Falen"),
+
+
+
+
+    # TODO - CHECK Summerset -
+    # Ciryelda - also found in Stros M'Kai?
+
+    # Ciryelda is not here if you've evactuated Bleakrock Isle!
     ("Bleakrock Isle", "Alinor", "Ciryelda"),
+
     ("Davon's Watch", "Alinor", "Ciryelda"),
+    ("Khenarthi's Roost", "Alinor", "Ciryelda"),
 
     ("Elden Root", "Alinor", "Ciryelda"),
     ("Mournhold", "Alinor", "Ciryelda"),
@@ -341,7 +359,7 @@ zone_transition_points = [
 
 baandari_caravan_stop = [
     ("Rimmen", "Elden Root", "Zemmarga"),
-    ("Elden Root", "Rimmen Root", "Zemmarga"),
+    ("Elden Root", "Rimmen", "Zemmarga"),
 
     ("Rimmen", "Wayrest", "Zemmarga"),
     ("Wayrest", "Rimmen", "Zemmarga"),

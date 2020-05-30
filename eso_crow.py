@@ -1,6 +1,9 @@
 import string
 import networkx as nx
 import eso_routes
+import eso_zones
+
+import pprint
 
 
 G = nx.DiGraph()
@@ -100,7 +103,7 @@ def dijkstra(source, target, test=False):
             for pairs in route_pairs:
                 (start, finish) = pairs
                 pairs_list.append(
-                    [start, finish, att_label[pairs], att_npc[pairs]])
+                    [start, finish, att_label[pairs], att_npc[pairs], eso_zones.map_ctz[finish], eso_zones.find_zone_info(eso_zones.map_ctz[finish])])
 
             if len(pairs_list) > 0:
                 if test:
@@ -138,7 +141,7 @@ att_npc = nx.get_edge_attributes(G, 'npc')
 att_label = nx.get_edge_attributes(G, 'label')
 
 S = "daggerfall"
-T = "stros m'kai"
+T = "Bleakrock isle"
 
 # dijkstra(S, T, test=True)
 
@@ -153,3 +156,89 @@ T = "stros m'kai"
 # Feeds /locations
 locations = G.nodes
 locations = sorted(locations)
+
+
+# nested_dict = { 'Abah's Landing': {'Hew's Bane': 'DLC'},
+
+# Dict = { }
+# print("Initial nested dictionary:-")
+# print(Dict)
+
+# Dict['Dict1'] = {}
+
+# # Adding elements one at a time
+# Dict['Dict1']['name'] = 'Bob'
+# Dict['Dict1']['age'] = 21
+# print("\nAfter adding dictionary Dict1")
+# print(Dict)
+
+# # Adding whole dictionary
+# Dict['Dict2'] = {'name': 'Cara', 'age': 25}
+# print("\nAfter adding dictionary Dict1")
+# print(Dict)
+
+def city_info_dict():
+    new_dict = {}
+    for location in locations:
+        new_dict[location] = {
+            'Zone': eso_zones.map_ctz[location],
+            'Zone Type': eso_zones.find_zone_info(eso_zones.map_ctz[location])}
+    return new_dict
+
+
+city_info_dict = city_info_dict()
+
+# Returns Murkmire
+# pprint.pprint(city_info_dict)
+
+
+def list_cities_in_zone(zone):
+    city_list = []
+    for city, dict2 in city_info_dict.items():
+        zone_name = dict2['Zone']
+        if zone == zone_name:
+            city_list.append(city)
+    return city_list
+
+
+# print(list_cities_in_zone('Vvardenfell'))
+
+
+def list_zones_in_expansion(expansion):
+    zone_list = []
+    for city, dict2 in city_info_dict.items():
+        zone_type = dict2['Zone Type']
+        zone_name = dict2['Zone']
+        if expansion == zone_type:
+            zone_list.append(zone_name)
+    return zone_list
+
+# print(list_zones_in_expansion('DLC'))
+
+
+def zonal_info_dict():
+
+    new_dict = {}
+    # Start with:
+    # City { Zone  Type }
+
+    # Zone { Type  [List of Cities]}
+    # new_zonal_dict = { "ZoneName": {"Type": "DLC", "Cities": ["City1" , "City2"] }}
+
+    for city, zone_dict in city_info_dict.items():
+        zone = zone_dict['Zone']
+        zone_type = zone_dict['Zone Type']
+
+        new_dict[zone] = {
+            'Type': zone_type,
+            'Cities': list_cities_in_zone(zone)}  # TODO Need to get a list of cities!
+
+    return new_dict
+
+
+zonal_info_dict = zonal_info_dict()
+
+# pprint.pprint(zonal_info_dict['Vvardenfell'])
+
+# Type > List of Zones > List of Cities
+# new_type_dict = {"TypeName": {"Zone":"ZoneName", "Cities": ["City1" , "City2"]}}
