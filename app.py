@@ -35,34 +35,6 @@ def faq():
     return render_template('faq.html')
 
 
-@app.route('/<source>/<target>')
-def dijkstra(source, target):
-    result = eso_crow.dijkstra(source, target)
-
-    if isinstance(result, list):
-        return render_template('dijkstra.html', pairs_list=result)
-
-    else:
-        return render_template('dijkstra.html', error_message=result)
-
-
-@app.route('/<node>')
-def node_page(node):
-    result = eso_crow.get_node_routes(node)
-
-    how_to_get_to = eso_crow.how_to_get_to(node)
-
-    node = string.capwords(node)
-
-    node = eso_crow.is_stros_mkai(node)
-
-    if isinstance(result, dict):
-        return render_template('node.html', node=node, edges=result, how_to_get_to=how_to_get_to)
-
-    else:
-        return render_template('page_not_found.html'), 404
-
-
 @app.route('/locations')
 def get_locations():
     return render_template('locations.html', locations=eso_crow.locations)
@@ -87,3 +59,31 @@ def handle_data():
 @app.errorhandler(404)
 def page_not_found():
     return render_template('page_not_found.html'), 404
+
+
+@app.route('/<node>')
+def node_page(node):
+    result = eso_crow.get_node_routes(node)
+
+    how_to_get_to = eso_crow.how_to_get_to(node)
+
+    node = string.capwords(node)
+
+    node = eso_crow.is_stros_mkai(node)
+
+    if isinstance(result, dict):
+        return render_template('node.html', node=node, edges=result, how_to_get_to=how_to_get_to)
+
+    else:
+        return render_template('page_not_found.html'), 404
+
+
+@app.route('/<source>/<target>')
+def dijkstra(source, target):
+    result = eso_crow.dijkstra(source, target)
+
+    if isinstance(result, list):
+        return render_template('dijkstra.html', pairs_list=result)
+
+    else:
+        return render_template('dijkstra.html', error_message=result)

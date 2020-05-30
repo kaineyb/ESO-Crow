@@ -14,7 +14,7 @@ def sort_dict(my_dict):
 
 def get_node_routes(node):
     try:
-        node = string.capwords(is_stros_mkai(node))
+        node = is_stros_mkai(string.capwords(node))
         all_edges = dict(nx.all_pairs_dijkstra_path_length(G))
         data = sort_dict(all_edges[node])
         # Deletes the node requested as it will return 0
@@ -29,7 +29,7 @@ def get_node_routes(node):
 
 def how_to_get_to(node):
     try:
-        node = string.capwords(is_stros_mkai(node))
+        node = is_stros_mkai(string.capwords(node))
         data = dict(nx.single_target_shortest_path_length(G, node))
         data = sort_dict(data)
         del data[node]
@@ -143,7 +143,10 @@ T = "stros m'kai"
 
 # print("Where you can go from: ", get_node_routes('Daggerfall'))
 # print('-'*20)
-# how_to_get_to('Lilmoth')
+
+# print(how_to_get_to("stros m'kai"))
+
+# print(is_stros_mkai("stros m'kai"))
 
 
 # Feeds /locations
