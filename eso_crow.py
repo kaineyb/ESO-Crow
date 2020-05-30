@@ -130,6 +130,7 @@ add_set_to_graph(eso_routes.faction_boatswain, 'Boatswains')
 add_set_to_graph(eso_routes.boats, 'Boats')
 add_set_to_graph(eso_routes.navigator, 'Navigators')
 add_set_to_graph(eso_routes.carts, 'Carts')
+add_set_to_graph(eso_routes.baandari_caravan_stop, 'Baandari Caravan Stop')
 
 
 # Attribues - NEED TO BE AFTER add_set_to_graph()

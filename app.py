@@ -83,7 +83,7 @@ def dijkstra(source, target):
     result = eso_crow.dijkstra(source, target)
 
     if isinstance(result, list):
-        return render_template('dijkstra.html', pairs_list=result)
+        return render_template('dijkstra.html', pairs_list=result, source=source, target=target)
 
     else:
         return render_template('dijkstra.html', error_message=result)

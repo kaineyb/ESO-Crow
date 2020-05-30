@@ -15,11 +15,12 @@
 .typeahead,
 .tt-suggestion {
   font-family: sans-serif;
-  width: 289px;
+  width: 10em;
 }
 
 .typeahead {
   background-color: #fff;
+  margin-bottom: 15px;
 }
 
 .typeahead:focus {

@@ -25,12 +25,8 @@
 
  <form action="{{ url_for('handle_data') }}" name='myform' id="myform" method="POST">
 
-        <p><label for="source"></label>
         <input class="typeahead form-control" type="text" id="Source" name="source" placeholder="Source" autocomplete="off">
-
-        <label for="destination"></label>
-        <input class="typeahead form-control" type="text"  placeholder="Destination" id="destination" name="destination" autocomplete="off"></p>
-        
+        <input class="typeahead form-control" type="text"  placeholder="Destination" id="destination" name="destination" autocomplete="off">        
         <input class="btn btn-lg btn-secondary fly" type="submit" value="Fly, my pretties!">
 </div>
 

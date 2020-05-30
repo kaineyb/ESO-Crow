@@ -253,9 +253,6 @@ navigator = [
     ("Alinor", "Wayrest", "Ciryelda")
 ]
 
-
-carriages = []
-
 # TODO Carts was rushed, needs checking
 
 CART_LABEL = "Self-driven Cart"
@@ -282,6 +279,7 @@ carts = [
 ]
 
 # TODO ZTP was rushed, needs checking
+# Also these are ZONAL not Cities.
 
 ZTP_LABEL = "Zone Transition Point"
 
@@ -341,4 +339,16 @@ zone_transition_points = [
     ("Shadowfen", "Deshaan", ZTP_LABEL)
 ]
 
+baandari_caravan_stop = [
+    ("Rimmen", "Elden Root", "Zemmarga"),
+    ("Elden Root", "Rimmen Root", "Zemmarga"),
+
+    ("Rimmen", "Wayrest", "Zemmarga"),
+    ("Wayrest", "Rimmen", "Zemmarga"),
+
+    ("Rimmen", "Mournhold", "Zemmarga"),
+    ("Mournhold", "Rimmen", "Zemmarga")
+]
+
+carriages = []
 mage_guild_portals = []
