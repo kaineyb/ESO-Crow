@@ -47,3 +47,7 @@ img {
   position: relative;
   top: 5px;
 }
+
+main a {
+  font-weight: bold;
+}
