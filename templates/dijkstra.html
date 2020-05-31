@@ -1,6 +1,16 @@
 {% extends "base.html" %}
 {% set active_page = "route" %}
 
+{%- macro zone_type(zt) -%}
+{%- if  zt == "DC" -%}routes_dc{%- endif -%}
+{%- if  zt == "AD" -%}routes_ad{%- endif -%}
+{%- if  zt == "EP" -%}routes_ep{%- endif -%}
+{%- if  zt == "DLC" -%}routes_dlc{%- endif -%}
+{%- if  zt == "Expansion" -%}routes_expansion{%- endif -%}
+{%- endmacro -%}
+
+
+
 {% block title %}Route{% endblock %}
 
 {% block head %}
@@ -36,7 +46,7 @@
             <a href="/{{ pair[1] }}">{{ pair[1] }}</a> via 
             <a href="https://en.uesp.net/wiki/Online:{{ pair[2] }}">{{ pair[2] }}</a>
             (<a href="https://en.uesp.net/wiki/Online:{{ pair[3] }}">{{ pair[3] }})</a>
-            <br>{{ pair[4] }} ({{ pair[5]}})
+            <br>{{ pair[4] }} (<span class="{{zone_type(pair[5])}}">{{ pair[5]}}</span>)
 
         </div>
     </div>

@@ -41,6 +41,11 @@ def get_locations():
     return render_template('locations.html', locations=eso_crow.locations)
 
 
+@app.route('/zones')
+def get_zones():
+    return render_template('zones.html', zones=eso_crow.zonal_info_dict)
+
+
 @app.route('/handle_data', methods=['POST'])
 def handle_data():
     source = request.form['source']

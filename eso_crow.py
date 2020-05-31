@@ -1,5 +1,6 @@
 import string
 import networkx as nx
+from collections import OrderedDict
 import eso_routes
 import eso_zones
 
@@ -10,6 +11,7 @@ G = nx.DiGraph()
 
 
 def sort_dict(my_dict):
+    # Sorts Dict by Value, then by Key
     new_dict = dict(
         [v for v in sorted(my_dict.items(), key=lambda kv: (kv[1], kv[0]))])
     return new_dict
@@ -66,6 +68,23 @@ def is_stros_mkai(source_or_destination):
     return source_or_destination
 
 
+def find_for_city(city, zone_type=False):
+    if zone_type:
+        try:
+            result = eso_zones.find_zone_info(eso_zones.map_ctz[city])
+        except KeyError:
+            result = "Zone not found"
+
+    else:
+        try:
+            result = eso_zones.map_ctz[city]
+        except KeyError:
+            result = "Zone not found"
+    return result
+
+
+# print(find_for_city("Eagle's Strand", zone_type=True))
+
 def dijkstra(source, target, test=False):
     try:
         source = string.capwords(source)
@@ -103,7 +122,7 @@ def dijkstra(source, target, test=False):
             for pairs in route_pairs:
                 (start, finish) = pairs
                 pairs_list.append(
-                    [start, finish, att_label[pairs], att_npc[pairs], eso_zones.map_ctz[finish], eso_zones.find_zone_info(eso_zones.map_ctz[finish])])
+                    [start, finish, att_label[pairs], att_npc[pairs], find_for_city(finish), find_for_city(finish, zone_type=True)])
 
             if len(pairs_list) > 0:
                 if test:
@@ -177,22 +196,25 @@ locations = sorted(locations)
 # print("\nAfter adding dictionary Dict1")
 # print(Dict)
 
+
 def city_info_dict():
+    # Create a dictionary of all Locations, adds Zone and Zone Type to each Location.
     new_dict = {}
     for location in locations:
         new_dict[location] = {
-            'Zone': eso_zones.map_ctz[location],
-            'Zone Type': eso_zones.find_zone_info(eso_zones.map_ctz[location])}
+            'Zone': find_for_city(location),
+            'Zone Type': find_for_city(location, zone_type=True)}
     return new_dict
 
 
 city_info_dict = city_info_dict()
 
 # Returns Murkmire
-# pprint.pprint(city_info_dict)
+# print(city_info_dict['Lilmoth']['Zone Type'])
 
 
 def list_cities_in_zone(zone):
+    # Creates a List of Cities that are in the 'Cities' key within a dict
     city_list = []
     for city, dict2 in city_info_dict.items():
         zone_name = dict2['Zone']
@@ -204,7 +226,8 @@ def list_cities_in_zone(zone):
 # print(list_cities_in_zone('Vvardenfell'))
 
 
-def list_zones_in_expansion(expansion):
+def list_zones_in_type(expansion):
+    # Creates a List of Zones that are in the 'Type' key within a dict
     zone_list = []
     for city, dict2 in city_info_dict.items():
         zone_type = dict2['Zone Type']
@@ -213,18 +236,19 @@ def list_zones_in_expansion(expansion):
             zone_list.append(zone_name)
     return zone_list
 
-# print(list_zones_in_expansion('DLC'))
+
+# print(list_zones_in_type('Daggerfall Covenant'))
 
 
 def zonal_info_dict():
-
-    new_dict = {}
-    # Start with:
+    # Starts with:
     # City { Zone  Type }
 
+    # Ends with:
     # Zone { Type  [List of Cities]}
-    # new_zonal_dict = { "ZoneName": {"Type": "DLC", "Cities": ["City1" , "City2"] }}
+    # new_dict = { "ZoneName": {"Cities": ["City1" , "City2"], "Type": "DLC" }}
 
+    new_dict = {}
     for city, zone_dict in city_info_dict.items():
         zone = zone_dict['Zone']
         zone_type = zone_dict['Zone Type']
@@ -232,13 +256,70 @@ def zonal_info_dict():
         new_dict[zone] = {
             'Type': zone_type,
             'Cities': list_cities_in_zone(zone)}  # TODO Need to get a list of cities!
-
     return new_dict
 
 
 zonal_info_dict = zonal_info_dict()
 
-# pprint.pprint(zonal_info_dict['Vvardenfell'])
 
+# new_dict = OrderedDict(zonal_info_dict.items())
+
+# pprint.pprint(zonal_info_dict)
+
+
+def sort_zonal_dict(my_dict):
+    new_dict = {}
+    # Sorts Dict by Value, then by Key
+    new_dict = dict(
+        [v for v in sorted(my_dict.items(), key=lambda kv: (kv[1], kv[0]))])
+    return new_dict
+
+
+# pprint.pprint(sort_zonal_dict(zonal_info_dict))
+
+# TODO Maybe coming soon? If Needed?
 # Type > List of Zones > List of Cities
 # new_type_dict = {"TypeName": {"Zone":"ZoneName", "Cities": ["City1" , "City2"]}}
+
+# Python3 code to demonstrate
+# Sort nested dictionary by key
+# using sorted()
+
+# initializing dictionary
+test_dict = {
+    'A': {'City': 'A', 'Type': 'DC'},
+    'B': {'City': 'B', 'Type': 'EP'},
+    'C': {'City': 'C', 'Type': 'AD'},
+    'D': {'City': 'C', 'Type': 'DLC'},
+    'E': {'City': 'C', 'Type': 'DLC'},
+    'F': {'City': 'C', 'Type': 'DLC'},
+    'G': {'City': 'C', 'Type': 'Expansion'},
+    'H': {'City': 'C', 'Type': 'Expansion'},
+    'I': {'City': 'C', 'Type': 'Expansion'},
+}
+
+# printing original dict
+# pprint.pprint(test_dict)
+# print('-' * 20)
+
+# using sorted()
+# Sort nested dictionary by key
+# res = OrderedDict(sorted(test_dict.items(), key=lambda x: x[1]['Type']))
+
+# print result
+# pprint.pprint(res)
+
+# print(test_dict.get('City', {}).get('Type'))
+
+
+sort_key_list = sorted(zonal_info_dict, key=lambda x: (
+    zonal_info_dict[x]['Type'], zonal_info_dict[x]['Cities']))
+
+for item in sort_key_list:
+    print(item, zonal_info_dict[item])
+
+# pprint.pprint(sort_key_list)
+
+# Create the order of the dictionary using a list
+
+# iterate of this list using each entry as a key to print out the remainder?

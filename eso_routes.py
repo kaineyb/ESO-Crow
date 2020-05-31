@@ -1,3 +1,5 @@
+# TODO Change Amend the islands to Port Hunding etc?
+
 siltstriders = [
     ("Balmora", "Gnisis", "Nevos Sareloth"),
     ("Balmora", "Vivec", "Nevos Sareloth"),
@@ -29,8 +31,8 @@ faction_boatswain = [
 
     # Aldmeri Dominion
     # Sugar-Claws will take you both ways
-    ("Vulkhel Guard", "Khenarthi's Roost", "Sugar-Claws"),
-    ("Khenarthi's Roost", "Vulkhel Guard", "Sugar-Claws"),
+    ("Vulkhel Guard", "Eagle's Strand", "Sugar-Claws"),
+    ("Eagle's Strand", "Vulkhel Guard", "Sugar-Claws"),
 
     # Scout Linimondil will take you both ways
     ("Skywatch", "Haven", "Scout Linimondil"),
@@ -38,14 +40,14 @@ faction_boatswain = [
 
     # Daggerfall Covenant
     # Gilzir will take you three ways
-    ("Daggerfall", "Stros M'Kai", "Gilzir"),
+    ("Daggerfall", "Port Hunding", "Gilzir"),
     ("Daggerfall", "Betnikh", "Gilzir"),
 
-    ("Stros M'Kai", "Daggerfall", "Gilzir"),
-    ("Stros M'Kai", "Betnikh", "Gilzir"),
+    ("Port Hunding", "Daggerfall", "Gilzir"),
+    ("Port Hunding", "Betnikh", "Gilzir"),
 
     ("Betnikh", "Daggerfall", "Gilzir"),
-    ("Betnikh", "Stros M'Kai", "Gilzir"),
+    ("Betnikh", "Port Hunding", "Gilzir"),
 
     ("Wayrest", "Sentinel", "Zihlijdel"),
     ("Sentinel", "Wayrest", "Captain Carlier"),
@@ -54,18 +56,17 @@ faction_boatswain = [
     # TODO The Boatmaster is quest NPC that requires an invite?
     # ("Mournhold ", "Shad Astula", "The Boatmaster"),
 
-    # TODO Need to check that Dasta can take you both ways or not.
-    # TODO Also not on ESO Transport map?
-    # Dastas Arenim is not here if you've evactuated Bleakrock Isle!
-    ("Bleakrock Isle", "Seyda Neen", "Dastas Arenim"),
 
-    ("Bleakrock Isle", "Davon's Watch", "Liezl"),
-    ("Bleakrock Isle", "Dhalmora", "Liezl"),
+    # Dastas Arenim is not here if you've evactuated Bleakrock Village!
+    # ("Bleakrock Village", "Seyda Neen", "Dastas Arenim"),
 
-    ("Davon's Watch", "Bleakrock Isle", "Liezl"),
+    ("Bleakrock Village", "Davon's Watch", "Liezl"),
+    ("Bleakrock Village", "Dhalmora", "Liezl"),
+
+    ("Davon's Watch", "Bleakrock Village", "Liezl"),
     ("Davon's Watch", "Dhalmora", "Liezl"),
 
-    ("Dhalmora", "Bleakrock Isle", "Liezl"),
+    ("Dhalmora", "Bleakrock Village", "Liezl"),
     ("Dhalmora", "Davon's Watch", "Liezl"),
 
 
@@ -240,27 +241,27 @@ navigator = [
     ("Vivec", "Wayrest", "Synda Imyam"),
 
     # Taros Evosa
-    ("Seyda Neen", "Bleakrock Isle", "Taros Evosa"),
-    ("Seyda Neen", "Stros M'Kai", "Taros Evosa"),
-    ("Seyda Neen", "Khenarthi's Roost", "Taros Evosa"),
+    ("Seyda Neen", "Bleakrock Village", "Taros Evosa"),
+    ("Seyda Neen", "Port Hunding", "Taros Evosa"),
+    ("Seyda Neen", "Eagle's Strand", "Taros Evosa"),
 
     # Davak Hlaren
-    ("Stros M'Kai", "Seyda Neen", "Davak Hlaren"),
+    ("Port Hunding", "Seyda Neen", "Davak Hlaren"),
 
     # Sathasa Falen
-    ("Khenarthi's Roost", "Seyda Neen", "Sathasa Falen"),
+    ("Eagle's Strand", "Seyda Neen", "Sathasa Falen"),
 
 
 
 
     # TODO - CHECK Summerset -
-    # Ciryelda - also found in Stros M'Kai?
+    # Ciryelda - also found in Port Hunding?
 
-    # Ciryelda is not here if you've evactuated Bleakrock Isle!
-    ("Bleakrock Isle", "Alinor", "Ciryelda"),
+    # Ciryelda is not here if you've evactuated Bleakrock Village!
+    ("Bleakrock Village", "Alinor", "Ciryelda"),
 
     ("Davon's Watch", "Alinor", "Ciryelda"),
-    ("Khenarthi's Roost", "Alinor", "Ciryelda"),
+    ("Eagle's Strand", "Alinor", "Ciryelda"),
 
     ("Elden Root", "Alinor", "Ciryelda"),
     ("Mournhold", "Alinor", "Ciryelda"),

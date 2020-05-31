@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% set active_page = "Zones" %}
+
+{%- macro zone_type(zt) -%}
+{%- if  zt == "DC" -%}dc{%- endif -%}
+{%- if  zt == "AD" -%}ad{%- endif -%}
+{%- if  zt == "EP" -%}ep{%- endif -%}
+{%- if  zt == "DLC" -%}dlc{%- endif -%}
+{%- if  zt == "Expansion" -%}expansion{%- endif -%}
+{%- if  zt == "Neutral" -%}neutral{%- endif -%}
+{%- endmacro -%}
+
+
+{% block title %}Zones{% endblock %}
+
+{% block head %}
+    {{ super() }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+{% endblock %}
+
+{% block content %}
+
+<h3>Zones</h3>
+
+
+{# zones is zonal_info_dict 
+{ "ZoneName": {"Cities": ["City1" , "City2"], "Type": "DLC" }} ##}
+
+{# This should list the zones in order of Type followed by Zone name Alphabetical ##}
+
+{% if zones %}
+        <p>We currently have {{zones|count}} Zones</p>
+
+        <div class="container mb-0 p-3 bg-dark zone-cont">
+        
+        {% for zone, zone_dict in zones.items() %}
+            <div class="zone zone-div mb-3">
+                <h6><b>{{ zone }}</b> <span class="badge badge-secondary zone-badge {{zone_type(zone_dict['Type'])}}">{{ zone_dict['Type'] }}</span></h6>
+                <hr class="zone-border {{zone_type(zone_dict['Type'])}}">
+                    <ul class="zone">
+                    {% for cities in zone_dict['Cities']%}
+                        <li><a href="{{ cities }}">{{ cities }}</a></li>
+                    {% endfor %}
+                    </ul>
+            
+            </div>
+        {% endfor %}
+
+        </div>
+{% endif %}
+
+
+{% endblock %}
+
+

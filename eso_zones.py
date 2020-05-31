@@ -78,16 +78,16 @@ def find_zone_info(zone):
             zone_info = "Neutral"
 
         elif zone in dc_zones:
-            zone_info = "Daggerfall Covenant"
+            zone_info = "DC"
 
         elif zone in ep_zones:
-            zone_info = "Ebonheart Pact"
+            zone_info = "EP"
 
         elif zone in ad_zones:
-            zone_info = "Aldmeri Dominion"
+            zone_info = "AD"
 
     else:
-        zone_info = "Not a Zone"
+        zone_info = "Not Found"
 
     return zone_info
 

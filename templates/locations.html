@@ -17,6 +17,8 @@
 {% if locations %}
         <p>We currently have {{locations|count}} Locations</p>
 
+        <p>Looking for <a href="/zones">Zones?</a></p>
+
         <div class="container mb-0 p-3 bg-dark">
         <ol class='node-list'>
         {% for location in locations %}
@@ -25,6 +27,7 @@
         </ol>
         </div>
 {% endif %}
+
 
 
 {% endblock %}

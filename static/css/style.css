@@ -1,3 +1,17 @@
+:root {
+  --dc: rgb(0, 100, 150);
+  --ep: rgb(165, 20, 15);
+  --ad: rgb(169, 110, 22);
+
+  --dc-image: url(/static/images/dc.png);
+  --ep-image: url(/static/images/ep.png);
+  --ad-image: url(/static/images/ad.png);
+
+  --dlc: green;
+  --expansion: pink;
+  --neutral: lightgray;
+}
+
 img {
   height: auto;
   max-width: 100%;
@@ -50,4 +64,95 @@ img {
 
 main a {
   font-weight: bold;
+}
+
+.routes_dc {
+  color: var(--dc);
+}
+
+.routes_ad {
+  color: var(--ad);
+}
+
+.routes_ep {
+  color: var(--ep);
+}
+
+.routes_dc::before,
+.routes_ad::before,
+.routes_ep::before {
+  margin-right: 5px;
+  margin-left: 5px;
+  position: relative;
+  top: 4px;
+}
+
+.routes_ep::before {
+  content: var(--ep-image);
+}
+
+.routes_dc::before {
+  content: var(--dc-image);
+}
+
+.routes_ad::before {
+  content: var(--ad-image);
+}
+
+.zone-badge {
+  float: right;
+}
+
+.dc {
+  background-color: var(--dc);
+}
+
+.ep {
+  background-color: var(--ep);
+}
+
+.ad {
+  background-color: var(--ad);
+}
+
+.expansion {
+  background-color: var(--expansion);
+}
+
+.dlc {
+  background-color: var(--dlc);
+}
+
+.neutral {
+  background-color: var(--neutral);
+  color: rgb(59, 59, 59);
+}
+
+.zone ul {
+  list-style: none;
+  padding-inline-start: 0px;
+  font-weight: normal;
+}
+
+.zone ul li a {
+  font-weight: normal;
+}
+
+.zone-div {
+  /* -moz-box-shadow: inset 0 0 10px #000000;
+  -webkit-box-shadow: inset 0 0 10px #000000;
+  box-shadow: inset 0 0 10px #000000; */
+  padding: 5px;
+  text-align: left;
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+.zone-cont {
+  column-count: 2;
+  column-gap: 50px;
+}
+
+.zone-border {
+  margin: 0;
 }
