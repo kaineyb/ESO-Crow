@@ -103,27 +103,33 @@ main a {
   float: right;
 }
 
-.dc {
+.dc,
+.DC {
   background-color: var(--dc);
 }
 
-.ep {
+.ep,
+.EP {
   background-color: var(--ep);
 }
 
-.ad {
+.ad,
+.AD {
   background-color: var(--ad);
 }
 
-.expansion {
+.expansion,
+.Expansion {
   background-color: var(--expansion);
 }
 
-.dlc {
+.dlc,
+.DLC {
   background-color: var(--dlc);
 }
 
-.neutral {
+.neutral,
+.Neutral {
   background-color: var(--neutral);
   color: rgb(59, 59, 59);
 }

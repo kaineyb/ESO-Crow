@@ -8,7 +8,7 @@ map_ctz = {
     "Anvil": "Gold Coast",
     "Balmora": "Vvardenfell",
     "Belkarth": "Craglorn",
-    "Betnikh": "Betnikh",
+    "Stonetooth Fortress": "Betnikh",
     "Bleakrock Village": "Bleakrock Isle",
     "Daggerfall": "Glenumbra",
     "Davon's Watch": "Stonefalls",

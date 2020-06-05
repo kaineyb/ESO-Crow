@@ -41,13 +41,13 @@ faction_boatswain = [
     # Daggerfall Covenant
     # Gilzir will take you three ways
     ("Daggerfall", "Port Hunding", "Gilzir"),
-    ("Daggerfall", "Betnikh", "Gilzir"),
+    ("Daggerfall", "Stonetooth Fortress", "Gilzir"),
 
     ("Port Hunding", "Daggerfall", "Gilzir"),
-    ("Port Hunding", "Betnikh", "Gilzir"),
+    ("Port Hunding", "Stonetooth Fortress", "Gilzir"),
 
-    ("Betnikh", "Daggerfall", "Gilzir"),
-    ("Betnikh", "Port Hunding", "Gilzir"),
+    ("Stonetooth Fortress", "Daggerfall", "Gilzir"),
+    ("Stonetooth Fortress", "Port Hunding", "Gilzir"),
 
     ("Wayrest", "Sentinel", "Zihlijdel"),
     ("Sentinel", "Wayrest", "Captain Carlier"),

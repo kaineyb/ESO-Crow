@@ -43,7 +43,7 @@ def get_locations():
 
 @app.route('/zones')
 def get_zones():
-    return render_template('zones.html', zones=eso_crow.zonal_info_dict)
+    return render_template('zones.html', zones=eso_crow.list_for_zones)
 
 
 @app.route('/handle_data', methods=['POST'])

@@ -165,36 +165,10 @@ T = "Bleakrock isle"
 # dijkstra(S, T, test=True)
 
 # print("Where you can go from: ", get_node_routes('Daggerfall'))
-# print('-'*20)
-
-# print(how_to_get_to("stros m'kai"))
-
-# print(is_stros_mkai("stros m'kai"))
-
 
 # Feeds /locations
 locations = G.nodes
 locations = sorted(locations)
-
-
-# nested_dict = { 'Abah's Landing': {'Hew's Bane': 'DLC'},
-
-# Dict = { }
-# print("Initial nested dictionary:-")
-# print(Dict)
-
-# Dict['Dict1'] = {}
-
-# # Adding elements one at a time
-# Dict['Dict1']['name'] = 'Bob'
-# Dict['Dict1']['age'] = 21
-# print("\nAfter adding dictionary Dict1")
-# print(Dict)
-
-# # Adding whole dictionary
-# Dict['Dict2'] = {'name': 'Cara', 'age': 25}
-# print("\nAfter adding dictionary Dict1")
-# print(Dict)
 
 
 def city_info_dict():
@@ -213,6 +187,7 @@ city_info_dict = city_info_dict()
 # print(city_info_dict['Lilmoth']['Zone Type'])
 
 
+# Used in Zonal_info_dict
 def list_cities_in_zone(zone):
     # Creates a List of Cities that are in the 'Cities' key within a dict
     city_list = []
@@ -226,6 +201,7 @@ def list_cities_in_zone(zone):
 # print(list_cities_in_zone('Vvardenfell'))
 
 
+# TODO Not used anywhere?
 def list_zones_in_type(expansion):
     # Creates a List of Zones that are in the 'Type' key within a dict
     zone_list = []
@@ -237,7 +213,7 @@ def list_zones_in_type(expansion):
     return zone_list
 
 
-# print(list_zones_in_type('Daggerfall Covenant'))
+# print(list_zones_in_type('EP'))
 
 
 def zonal_info_dict():
@@ -262,64 +238,32 @@ def zonal_info_dict():
 zonal_info_dict = zonal_info_dict()
 
 
-# new_dict = OrderedDict(zonal_info_dict.items())
+def get_locations_via_expansion(expansion):
 
-# pprint.pprint(zonal_info_dict)
+    new_list = []
 
+    for location in zonal_info_dict:
+        if zonal_info_dict[location]['Type'] == expansion:
+            new_list.append([zonal_info_dict[location]['Type'], location, zonal_info_dict[location]['Cities']
+                             ])
 
-def sort_zonal_dict(my_dict):
-    new_dict = {}
-    # Sorts Dict by Value, then by Key
-    new_dict = dict(
-        [v for v in sorted(my_dict.items(), key=lambda kv: (kv[1], kv[0]))])
-    return new_dict
+    new_list.sort(key=lambda x: x[1])
 
-
-# pprint.pprint(sort_zonal_dict(zonal_info_dict))
-
-# TODO Maybe coming soon? If Needed?
-# Type > List of Zones > List of Cities
-# new_type_dict = {"TypeName": {"Zone":"ZoneName", "Cities": ["City1" , "City2"]}}
-
-# Python3 code to demonstrate
-# Sort nested dictionary by key
-# using sorted()
-
-# initializing dictionary
-test_dict = {
-    'A': {'City': 'A', 'Type': 'DC'},
-    'B': {'City': 'B', 'Type': 'EP'},
-    'C': {'City': 'C', 'Type': 'AD'},
-    'D': {'City': 'C', 'Type': 'DLC'},
-    'E': {'City': 'C', 'Type': 'DLC'},
-    'F': {'City': 'C', 'Type': 'DLC'},
-    'G': {'City': 'C', 'Type': 'Expansion'},
-    'H': {'City': 'C', 'Type': 'Expansion'},
-    'I': {'City': 'C', 'Type': 'Expansion'},
-}
-
-# printing original dict
-# pprint.pprint(test_dict)
-# print('-' * 20)
-
-# using sorted()
-# Sort nested dictionary by key
-# res = OrderedDict(sorted(test_dict.items(), key=lambda x: x[1]['Type']))
-
-# print result
-# pprint.pprint(res)
-
-# print(test_dict.get('City', {}).get('Type'))
+    return new_list
 
 
-sort_key_list = sorted(zonal_info_dict, key=lambda x: (
-    zonal_info_dict[x]['Type'], zonal_info_dict[x]['Cities']))
+# print(zonal_info_dict["Hew's Bane"]['Type'])
 
-for item in sort_key_list:
-    print(item, zonal_info_dict[item])
+ad_zonal = get_locations_via_expansion("AD")
+dc_zonal = get_locations_via_expansion("DC")
+ep_zonal = get_locations_via_expansion("EP")
+neutral_zonal = get_locations_via_expansion("Neutral")
+expansion_zonal = get_locations_via_expansion("Expansion")
+dlc_zonal = get_locations_via_expansion("DLC")
 
-# pprint.pprint(sort_key_list)
+list_for_zones = ad_zonal + dc_zonal + ep_zonal + \
+    neutral_zonal + expansion_zonal + dlc_zonal
 
-# Create the order of the dictionary using a list
+# pprint.pprint(list_for_zones)
 
-# iterate of this list using each entry as a key to print out the remainder?
+# key=lambda kv: (kv[1], kv[0]))]
