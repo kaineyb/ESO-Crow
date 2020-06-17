@@ -1,11 +1,13 @@
-
 {% extends "base.html" %}
+{% import "bootstrap/form.html" as wtf %}
 {% set active_page = "contact" %}
+{% from "_formhelpers.html" import render_field %}
 
 {% block title %}Contact{% endblock %}
 
 {% block head %}
     {{ super() }}
+     <script src="https://www.google.com/recaptcha/api.js"></script>
     <style type="text/css">
         .important { color: #336699; }
     </style>
@@ -14,21 +16,42 @@
 {% block content %}
 
 <h1 class="cover-heading">Contact</h1>
-       
-<form action="/contact" method="POST">
 
-    <input type='text' name='email' placeholder='alice.smith@example.com' /><br/>
+<p>If you're reporting a bug or error, please include your OS and browser information.</p>
 
-    <input type='text' name='message' placeholder='your message' /><br/>
+   <hr>
+  <form action="" method="post" class="form" role="form">
 
-    <input type='submit' value='submit' />
-    
-</form>
 
+    <div class="form-group">
+        {{ render_field(form.name, class='form-control', 
+          placeholder='Your name') }}
+    </div>
+
+    <div class="form-group">
+        {{ render_field(form.email, class='form-control', 
+          placeholder='email@email.com') }}
+    </div>
+
+    <div class="form-group">
+        {{ render_field(form.feedback, class='form-control') }}
+    </div>
+
+        <div class="form-group">
+        {{ render_field(form.message, class='form-control', 
+          placeholder='Your Message here') }}
+    </div>
+
+    {{ form.csrf_token() }}
+
+    <div class="form-group">
+        {{ form.recaptcha }}
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-lg btn-secondary fly">Submit</button>
+    </div>
+
+  </form>
 
 {% endblock %}
-
-
-
-
-

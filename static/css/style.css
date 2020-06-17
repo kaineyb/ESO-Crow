@@ -162,3 +162,19 @@ main a {
 .zone-border {
   margin: 0;
 }
+
+label {
+  float: left;
+}
+
+.alert-warning {
+  text-shadow: none;
+}
+
+.g-recaptcha {
+  display: inline-block;
+}
+
+textarea.form-control {
+  height: 200px;
+}

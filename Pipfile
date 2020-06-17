@@ -4,12 +4,17 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+pylint = "*"
+autopep8 = "*"
 
 [packages]
 requests = "*"
 flask = "==1.1.2"
-flask-bootstrap = "*"
 networkx = "*"
+flask-wtf = "*"
+email-validator = "*"
+flask-mail = "*"
+bootstrap-flask = "*"
 
 [requires]
 python_version = "3.8"
