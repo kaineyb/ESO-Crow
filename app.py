@@ -27,8 +27,17 @@ app.config.update(mail_settings)
 
 app.config.update(
     RECAPTCHA_OPTIONS={'theme': 'dark'},
-    RECAPTCHA_PUBLIC_KEY="6Lcw4aUZAAAAADDqdp5nI-DJRM4yeEOE50cJ9kmZ",
-    RECAPTCHA_PRIVATE_KEY="6Lcw4aUZAAAAAADZ_dtQzqh9XH1fSrsBOJCNhpv2"
+
+    # Live
+    RECAPTCHA_PUBLIC_KEY="6Lco8qUZAAAAABKxp4jQ_Pp85mNvpeW6XxukMUV1",
+    RECAPTCHA_PRIVATE_KEY="6Lco8qUZAAAAAIgMfgnkFyePIqVsLeft_XTahQP0"
+
+
+    # Localhost
+    # RECAPTCHA_PUBLIC_KEY="6Lcw4aUZAAAAADDqdp5nI-DJRM4yeEOE50cJ9kmZ",
+    # RECAPTCHA_PRIVATE_KEY="6Lcw4aUZAAAAAADZ_dtQzqh9XH1fSrsBOJCNhpv2"
+
+
 )
 
 app.config.from_mapping(
