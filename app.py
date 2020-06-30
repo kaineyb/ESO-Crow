@@ -65,24 +65,6 @@ def registration():
         return redirect('/feedback_sent')
     return render_template('contact.html', form=form)
 
-#  ## Kinda works!
-#  @app.route('/contact', methods=['GET', 'POST'])
-# def registration():
-#     form = FeedBackForm(request.form)
-
-#     if request.method == 'POST' and form.validate_on_submit():
-#         name = request.form['name']
-#         email_address = request.form['email']
-#         # feedback = request.form['feedback']
-#         message = request.form['message']
-#         msg = Message(f"ESO-Crow: Subject Name TBA", sender=(name, email_address), reply_to=email_address,
-#                       recipients=["kaineyb@gmail.com"])
-#         msg.body = message
-#         mail.send(msg)
-
-#         return redirect('/feedback_sent')
-#     return render_template('contact.html', form=form)
-
 
 @ app.route('/feedback_sent')
 def email_sent():
