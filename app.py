@@ -3,6 +3,7 @@ from model import FeedBackForm
 from flask import Flask, request, redirect, render_template
 from flask_mail import Mail, Message
 from flask_bootstrap import Bootstrap
+from random import choice
 
 # My stuff:
 import eso_crow
@@ -148,3 +149,17 @@ def dijkstra(source, target):
 
     else:
         return render_template('dijkstra.html', error_message=result)
+
+
+@ app.route('/random_route')
+def random_route():
+
+    nodes = eso_crow.locations
+
+    url1 = choice(nodes)
+    url2 = choice(nodes)
+
+    while url1 == url2:
+        url2 = choice(nodes)
+
+    return redirect(f'/{url1}/{url2}')
