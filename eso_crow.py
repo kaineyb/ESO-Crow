@@ -159,8 +159,8 @@ add_set_to_graph(eso_routes.baandari_caravan_stop, 'Baandari Caravan Stop')
 att_npc = nx.get_edge_attributes(G, 'npc')
 att_label = nx.get_edge_attributes(G, 'label')
 
-S = "daggerfall"
-T = "Bleakrock isle"
+S = "Alten%20Corimont"
+T = "Bleakrock%20Village"
 
 # dijkstra(S, T, test=True)
 
@@ -267,3 +267,9 @@ list_for_zones = ad_zonal + dc_zonal + ep_zonal + \
 # pprint.pprint(list_for_zones)
 
 # key=lambda kv: (kv[1], kv[0]))]
+
+
+def convert_space(request_name):
+    """ Converts %20 into a space. """
+    request_name = request_name.replace("%20", " ")
+    return request_name

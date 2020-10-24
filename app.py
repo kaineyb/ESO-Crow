@@ -125,6 +125,8 @@ def page_not_found():
 
 @ app.route('/<node>')
 def node_page(node):
+    node = eso_crow.convert_space(node)
+
     result = eso_crow.get_node_routes(node)
 
     how_to_get_to = eso_crow.how_to_get_to(node)
@@ -142,6 +144,9 @@ def node_page(node):
 
 @ app.route('/<source>/<target>')
 def dijkstra(source, target):
+    source = eso_crow.convert_space(source)
+    target = eso_crow.convert_space(target)
+
     result = eso_crow.dijkstra(source, target)
 
     if isinstance(result, list):
