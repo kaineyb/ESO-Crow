@@ -37,12 +37,12 @@
         <h2>{{ node }} not found</h2>
     {% endif %}
 
-{% if edges %}
+{% if travel_from %}
 
 <div class="container mb-5 mt-5 p-3 bg-dark"> 
 
     <ul class='node-list'>
-    {% for key, value in edges.items() %}
+    {% for key, value in travel_from.items() %}
         <li><span class=" badge badge-secondary font-italic text-left">{{ value }}</span>
         <a href="{{node}}/{{key}}">{{ key }}</a>
         </li>
@@ -52,7 +52,7 @@
 
 {% endif %}
 
-{% if not how_to_get_to %}
+{% if not travel_to %}
             <h2>{{ node }}</h2>
 
             <p>Sorry you can't get to {{ node }} from anywhere else</p>
@@ -64,11 +64,11 @@
 
         {% endif %}
 
-{% if how_to_get_to %}
+{% if travel_to %}
 <div class="container mb-5 mt-5 p-3 bg-dark"> 
 
     <ul class='node-list'>
-    {% for key, value in how_to_get_to.items() %}
+    {% for key, value in travel_to.items() %}
         <li><span class=" badge badge-secondary font-italic text-left">{{ value }}</span>
         <a href="/{{key}}/{{node}}">{{ key }}</a>
         </li>

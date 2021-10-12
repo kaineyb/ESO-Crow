@@ -1,7 +1,71 @@
+
+faction_names = [
+    "Aldmeri Dominion",
+    "Ebonheart Pact",
+    "Daggerfall Covenant"
+]
+
+ad = [
+    "Auridon",
+    "Grahtwood",
+    "Greenshade",
+    "Khenarthi's Roost",
+    "Malabal Tor",
+    "Reaper's March"
+
+]
+
+ep = [
+    "Bal Foyen",
+    "Bleakrock Isle",
+    "Deshaan",
+    "Eastmarch",
+    "The Rift",
+    "Shadowfen",
+    "Stonefalls"
+]
+
+
+dc = [
+    "Alik'r Desert",
+    "Bangkorai",
+    "Betnikh",
+    "Glenumbra",
+    "Rivenspire",
+    "Stormhaven",
+    "Stros M'Kai"
+]
+
+neutral = [
+    "Coldharbour",
+    "Craglorn",
+    "Cyrodiil"
+]
+
+chapter = [
+    "Artaeum",
+    "Northern Elsweyr",
+    "Summerset",
+    "Vvardenfell",
+    "Western Skyrim",
+]
+
+dlc = [
+    "Clockwork City",
+    "Gold Coast",
+    "Hew's Bane",
+    "Murkmire",
+    "Southern Elsweyr",
+    "Wrothgar",
+]
+
+faction_zones = ad + dc + ep
+
+all = faction_zones + neutral + chapter + dlc
+
 # List is alphabetical based on print out for G.nodes() - Zones added manually.
 
-
-map_ctz = {
+city_to_zone = {
     "Abah's Landing": "Hew's Bane",
     "Alinor": "Summerset",
     "Alten Corimont": "Shadowfen",
@@ -43,4 +107,3 @@ map_ctz = {
     "Woodhearth": "Greenshade",
 }
 
-# print(cities_to_zones["Tel Mora"])
