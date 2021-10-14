@@ -6,6 +6,7 @@ verify_ssl = true
 [dev-packages]
 pylint = "*"
 autopep8 = "*"
+pytest = "*"
 
 [packages]
 requests = "*"
@@ -15,6 +16,7 @@ flask-wtf = "*"
 email-validator = "*"
 flask-mail = "*"
 bootstrap-flask = "*"
+
 
 [requires]
 python_version = "3.8"

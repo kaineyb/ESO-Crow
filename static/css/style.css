@@ -3,9 +3,9 @@
   --ep: rgb(165, 20, 15);
   --ad: rgb(169, 110, 22);
 
-  --dc-image: url(/static/images/dc.png);
-  --ep-image: url(/static/images/ep.png);
-  --ad-image: url(/static/images/ad.png);
+  --dc-image: url(/static/images/daggerfall.png);
+  --ep-image: url(/static/images/ebonheart.png);
+  --ad-image: url(/static/images/aldmeri.png);
 
   --dlc: green;
   --expansion: pink;
