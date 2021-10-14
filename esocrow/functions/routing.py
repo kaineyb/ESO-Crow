@@ -1,18 +1,3 @@
-#########################
-# Below enables Sentinel, when run directly.
-#########################
-
-if __package__ is None:
-    import sys
-    from pathlib import Path
-    DIR = Path(__file__).resolve().parent
-    sys.path.insert(0, str(DIR.parent))
-    __package__ = DIR.name
-    print(__package__)
-
-
-#########################
-
 # Built-ins
 import string
 from typing import Union
@@ -25,7 +10,7 @@ import networkx as nx
 from esocrow.functions.misc import find_for_city
 
 
-def dijkstra(G: DiGraph, source, target, attribute_label, attribute_npc, test=False):
+def dijkstra(G: DiGraph, source, target, attribute_label, attribute_npc, test=False) -> Union[str, list]:
     try:
         source = string.capwords(source)
         target = string.capwords(target)
@@ -83,16 +68,13 @@ def dijkstra(G: DiGraph, source, target, attribute_label, attribute_npc, test=Fa
 
 
 if __name__ == '__main__':
-    """ """
 
-    from main import G, att_label, att_npc
+    from esocrow.main import G, att_label, att_npc  # noqa
+    from esocrow.functions.routing import dijkstra  # noqa
 
     source = "Riften"
-    target = "Mournhold"
+    destination = "Mournhold"
 
-    attribute_label = att_label
-    attribute_npc = att_npc
-
-    result = dijkstra(G, source, target, attribute_label, attribute_npc)
+    result = dijkstra(G, source, destination, att_label, att_npc)
 
     print(result)

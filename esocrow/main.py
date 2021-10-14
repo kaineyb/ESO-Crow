@@ -1,16 +1,3 @@
-#########################
-# Below enables Sentinel, when run directly.
-#########################
-
-if __package__ is None:
-    import sys
-    from pathlib import Path
-    DIR = Path(__file__).resolve().parent
-    sys.path.insert(0, str(DIR.parent))
-    __package__ = DIR.name
-
-#########################
-
 # Networkx
 import networkx as nx
 
@@ -55,17 +42,3 @@ dlc_zonal = get_locations_via_expansion("DLC", zonal_info_dict)
 
 list_for_zones = ad_zonal + dc_zonal + ep_zonal + \
     neutral_zonal + expansion_zonal + dlc_zonal
-
-if __name__ == '__main__':
-
-    """ Sentinel """
-
-    print("*"*20)
-    print("att_npc")
-    print("*"*20)
-    pp.pprint(att_npc)
-
-    print("*"*20)
-    print("att_label")
-    print("*"*20)
-    pp.pprint(att_label)

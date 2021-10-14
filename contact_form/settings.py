@@ -1,9 +1,9 @@
+
 from flask_mail import Mail
 from flask import Flask
 
 
 def init_mail(app: Flask):
-
     """ Initialises Mail Settings for Flask to use, and recaptcha for the Contact Form"""
 
     mail_settings = {

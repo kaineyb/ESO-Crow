@@ -8,15 +8,13 @@
 # Built-ins
 
 # Flask
-
-
-from flask import Flask
+from contact_form.settings import init_mail
 from flask_bootstrap import Bootstrap
+from flask import Flask
 
 # 3rd Party
 
 # My stuff
-from contact_form.settings import init_mail
 
 ####################
 # App
