@@ -32,8 +32,7 @@ block title %}Contact{% endblock %} {% block head %} {{ super() }}
   </div>
 
   <div class="form-group">
-    {{ render_field(form.message, class='form-control', placeholder='Your
-    Message here') }}
+    {{ render_field(form.message, class='form-control', placeholder='Your Message here') }}
   </div>
 
   {{ form.csrf_token() }}
@@ -45,6 +44,6 @@ block title %}Contact{% endblock %} {% block head %} {{ super() }}
   </div>
 </form>
 
-<div>Cpanel test :)</div>
+
 
 {% endblock %}
