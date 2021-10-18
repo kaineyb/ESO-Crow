@@ -3,7 +3,8 @@ import networkx as nx
 
 # EsoCrow
 from esocrow.functions.graph import add_routes_to_graph
-from esocrow.functions.misc import city_info, zonal_info, get_locations_via_expansion
+
+from esocrow.functions.build import city_info, zonal_info, get_locations_via_expansion
 import esocrow.nodes.all as nodes
 
 import pprint as pp

@@ -1,4 +1,5 @@
-from esocrow.functions.misc import sort_dict, city_zone, city_zone_type
+from esocrow.functions.misc import sort_dict, city_zone, city_zone_type, find_zone_info, convert_spaces
+import esocrow.data.zones as zones
 
 
 def test_sort_dict():
@@ -43,3 +44,37 @@ def test_city_zone_type():
 
     result = city_zone_type("Gold")
     assert result == "Zone not found"
+
+
+def test_find_zone_info():
+
+    result = find_zone_info("Grahtwood")
+    assert result == "AD"
+
+    result = find_zone_info("Deshaan")
+    assert result == "EP"
+
+    result = find_zone_info("Glenumbra")
+    assert result == "DC"
+
+    result = find_zone_info("Coldharbour")
+    assert result == "Neutral"
+
+    result = find_zone_info("Summerset")
+    assert result == "Expansion"
+
+    result = find_zone_info("Clockwork City")
+    assert result == "DLC"
+
+    result = find_zone_info("Gold")
+    assert result == "Not Found"
+
+
+def test_convert_spaces():
+
+    input = "Bleakrock%20Village"
+
+    result = convert_spaces(input)
+    criteria = "Bleakrock Village"
+
+    assert result == criteria
