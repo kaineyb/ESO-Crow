@@ -9,27 +9,26 @@ import networkx as nx
 from esocrow.functions.misc import sort_dict
 
 
-def travel_from(G: DiGraph, node: str) -> Union[dict, str]:
+def travel_from(G: DiGraph, node: str) -> Union[dict, None]:
     """ 
     Used on the Solo Node Pages.
     Returns a dictionary of all the places that can take you to node
     """
 
-    """ Takes a node, checks a digraph and returns a dictionary or a str (error message) """
+    """ Takes a node, checks a digraph and returns a dictionary or None """
     try:
         all_edges: dict = dict(nx.all_pairs_dijkstra_path_length(G))
         data: dict = sort_dict(all_edges[node])
+        # data = all_edges[node]
         # Deletes the node requested as it will return 0
         del data[node]
         return data
 
     except KeyError:
-        # Doesn't actually get shown anywhere, but needs to *not* be a dict.
-        error_message = "Sorry that location wasn't found :("
-        return error_message
+        return None
 
 
-def travel_to(G: DiGraph, node: str) -> Union[dict, str]:
+def travel_to(G: DiGraph, node: str) -> Union[dict, None]:
     """
     Used on the Solo Node Pages.
     Returns a dictionary of all the places that can take you to node
@@ -41,10 +40,7 @@ def travel_to(G: DiGraph, node: str) -> Union[dict, str]:
         return data
 
     except KeyError:
-        # Doesn't actually get shown anywhere, but needs to *not* be a dict.
-        error_message = "Sorry that location wasn't found :("
-        return error_message
+        return None
 
     except nx.NodeNotFound:
-        error_message = "Node Not Found!"
-        return error_message
+        return None

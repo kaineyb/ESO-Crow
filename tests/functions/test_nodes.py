@@ -10,8 +10,7 @@ def test_travel_to():
     assert isinstance(result, dict)
 
     result = travel_to(G, "Gold")
-    assert isinstance(result, str)
-    assert result == "Node Not Found!"
+    assert result == None
 
 
 def test_travel_from():
@@ -20,5 +19,4 @@ def test_travel_from():
     assert isinstance(result, dict)
 
     result = travel_from(G, "Gold")
-    assert isinstance(result, str)
-    assert result == "Sorry that location wasn't found :("
+    assert result == None

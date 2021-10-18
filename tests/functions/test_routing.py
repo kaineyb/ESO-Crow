@@ -24,8 +24,8 @@ def test_no_route():
 
     criteria = "Cannot find a route between Woodhearth and Skywatch. Route not possible."
 
-    assert result == criteria
     assert isinstance(result, str)
+    assert result == criteria
 
 
 def test_both_not_found():
@@ -37,8 +37,8 @@ def test_both_not_found():
 
     criteria = f"Both Source: {source} and Destination: {destination} not found"
 
-    assert result == criteria
     assert isinstance(result, str)
+    assert result == criteria
 
 
 def test_destination_not_found():
@@ -50,6 +50,7 @@ def test_destination_not_found():
 
     criteria = f"Destination: {destination} not found"
 
+    assert isinstance(result, str)
     assert result == criteria
 
 
@@ -62,8 +63,8 @@ def test_source_not_found():
 
     criteria = f"Source: {source} not found"
 
-    assert result == criteria
     assert isinstance(result, str)
+    assert result == criteria
 
 
 def test_same_source_and_destination():
@@ -75,5 +76,5 @@ def test_same_source_and_destination():
 
     criteria = f"Source and Destination are the same!"
 
-    assert result == criteria
     assert isinstance(result, str)
+    assert result == criteria

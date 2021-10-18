@@ -12,34 +12,18 @@
 
 {% block content %}
 
-    {% if not error_message %}
 
+{% if not travel_from %}
+    <h2>{{ node }}</h2>
 
-        {% if not edges %}
-            <h2>{{ node }}</h2>
+    <p>Sorry you can't travel from {{ node }} to anywhere else.</p>
 
-            <p>Sorry you can't travel from {{ node }} to anywhere else.</p>
+    {% else %}
+    <h2>{{ node }}</h2>
 
-        {% else %}
-            <h2>{{ node }}</h2>
+    <p>Travelling from {{ node }} you can get to the places below</p>
 
-            <p>Travelling from {{ node }} you can get to the places below</p>
-
-        {% endif %}
-
-
-
-    {% endif %}
-
-
-
-    {% if error_message %}
-        <h2>{{ node }} not found</h2>
-    {% endif %}
-
-{% if travel_from %}
-
-<div class="container mb-5 mt-5 p-3 bg-dark"> 
+    <div class="container mb-5 mt-5 p-3 bg-dark"> 
 
     <ul class='node-list'>
     {% for key, value in travel_from.items() %}
@@ -48,24 +32,22 @@
         </li>
     {% endfor %}
     </ul>
-</div>
+    </div>
 
 {% endif %}
 
+
 {% if not travel_to %}
-            <h2>{{ node }}</h2>
+    <h2>{{ node }}</h2>
 
-            <p>Sorry you can't get to {{ node }} from anywhere else</p>
+    <p>Sorry you can't get to {{ node }} from anywhere else</p>
 
-        {% else %}
-            <h2>Getting to {{ node }}</h2>
+    {% else %}
+    <h2>Getting to {{ node }}</h2>
 
-            <p>You can get to {{ node }} from the places below:</p>
+    <p>You can get to {{ node }} from the places below:</p>
 
-        {% endif %}
-
-{% if travel_to %}
-<div class="container mb-5 mt-5 p-3 bg-dark"> 
+    <div class="container mb-5 mt-5 p-3 bg-dark"> 
 
     <ul class='node-list'>
     {% for key, value in travel_to.items() %}
@@ -74,11 +56,8 @@
         </li>
     {% endfor %}
     </ul>
-</div>
+    </div>
 {% endif %}
-
-
-  
 
 
 {% endblock %}

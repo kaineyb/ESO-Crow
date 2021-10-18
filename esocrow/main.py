@@ -18,13 +18,12 @@ add_routes_to_graph(G, nodes.faction_boatswain, 'Boatswains')
 add_routes_to_graph(G, nodes.boats, 'Boats')
 add_routes_to_graph(G, nodes.navigator, 'Navigators')
 add_routes_to_graph(G, nodes.carts, 'Carts')
-add_routes_to_graph(G, nodes.baandari_caravan_stop, 'Baandari Caravan Stop')
-
+add_routes_to_graph(G, nodes.baandari_caravan_stop,
+                    'Baandari Caravan Stop')
 
 # Attributes - NEED TO BE AFTER add_set_to_graph()
 att_npc = nx.get_edge_attributes(G, 'npc')
 att_label = nx.get_edge_attributes(G, 'label')
-
 
 # Feeds /locations
 locations = G.nodes

@@ -1,3 +1,4 @@
+from typing import Literal
 import esocrow.data.zones as zones
 
 
@@ -8,18 +9,23 @@ def sort_dict(my_dict: dict) -> dict:
     return new_dict
 
 
-def find_for_city(city, zone_type=False) -> str:
-    if zone_type:
-        try:
-            result = find_zone_info(zones.city_to_zone[city])
-        except KeyError:
-            result = "Zone not found"
+def city_zone(city) -> str:
+    """ Returns the Zone that a City is in """
 
-    else:
-        try:
-            result = zones.city_to_zone[city]
-        except KeyError:
-            result = "Zone not found"
+    try:
+        result = zones.city_to_zone[city]
+    except KeyError:
+        result = "Zone not found"
+    return result
+
+
+def city_zone_type(city) -> str:
+    """ Returns the type of Zone that a City is in """
+
+    try:
+        result = find_zone_info(zones.city_to_zone[city])
+    except KeyError:
+        result = "Zone not found"
     return result
 
 
@@ -28,8 +34,8 @@ def city_info(locations: list) -> dict:
     new_dict = {}
     for location in locations:
         new_dict[location] = {
-            'Zone': find_for_city(location),
-            'Zone Type': find_for_city(location, zone_type=True)}
+            'Zone': city_zone(location),
+            'Zone Type': city_zone_type(location)}
     return new_dict
 
 
@@ -89,7 +95,7 @@ def get_locations_via_expansion(expansion, zonal_info_dict):
     return new_list
 
 
-def find_zone_info(zone):
+def find_zone_info(zone) -> Literal["DLC", "Expansion", "Neutral", "DC", "EP", "AD"]:
 
     if zone in zones.all:
         if zone in zones.dlc:
