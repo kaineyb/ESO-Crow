@@ -1,4 +1,3 @@
-from typing import Literal
 import esocrow.data.zones as zones
 
 
@@ -29,7 +28,7 @@ def city_zone_type(city) -> str:
     return result
 
 
-def find_zone_info(zone: str) -> Literal["DLC", "Expansion", "Neutral", "DC", "EP", "AD"]:
+def find_zone_info(zone: str):
 
     if zone in zones.all:
         if zone in zones.dlc:
