@@ -1,7 +1,7 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/arkus/dev_esocrow
+    - export DEPLOYPATH=/home/arkus/dev_esocrow/
     - /bin cp * $DEPLOYPATH
     - cd $DEPLOYPATH
     - rm -r .git
