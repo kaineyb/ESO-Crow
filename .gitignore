@@ -1,6 +1,7 @@
 # Extras
 ignore_testbed.py
 tempCodeRunnerFile.py
+.pytest_cache/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
