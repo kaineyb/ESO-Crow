@@ -7,7 +7,5 @@ deployment:
     - rm -r /home/arkus/python/dev_esocrow/*
     # Copy Files over from local dev repo
     - /bin/cp -r /home/arkus/repositories/__DEV__ESO-Crow/* $DEPLOYPATH
-    # Goto Dev Directory
-    - cd $DEPLOYPATH
     # Delete git folder
-    - rm -r .git
+    - rm -r /home/arkus/python/dev_esocrow/.git
