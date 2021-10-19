@@ -1,6 +1,7 @@
 ---
 deployment:
   tasks:
+    # Make sure this is called .cpanel.yml
     # Set Variables
     - export DEPLOYPATH=/home/arkus/python/dev_esocrow
     # Clear Dev Directory
