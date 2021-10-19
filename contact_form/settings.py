@@ -24,7 +24,7 @@ def keys():
 
     else:
         print("Environment Unknown - Keys Not Loaded!")
-        public, private = None, None, None, None
+        public, private, email, email_pass = None, None, None, None
 
     return public, private, email, email_pass
 
