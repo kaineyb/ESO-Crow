@@ -1,8 +1,5 @@
 ---
 deployment:
   tasks:
-    # Add command to empty dev_esocrow!
-    - export DEPLOYPATH=/home/arkus/dev_esocrow/
-    - /bin/cp -r /home/arkus/repositories/__DEV__ESO-Crow/* $DEPLOYPATH
-    - cd $DEPLOYPATH
-    - rm -r .git
+    - sh deploy.sh
+    - echo 'All done :)'
