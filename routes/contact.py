@@ -2,6 +2,8 @@ from flask import request, render_template
 from flask_mail import Message
 from esocrow.models import FeedBackForm
 
+from keys import EMAIL
+
 from app import app, mail
 
 
@@ -19,7 +21,7 @@ def registration():
         feedback = form.feedback.data
         message = form.message.data
         msg = Message(f"ESO-Crow: {feedback}", sender=(name, email_address), reply_to=email_address,
-                      recipients=["kaineyb@gmail.com"])
+                      recipients=[EMAIL])
         msg.body = message
         mail.send(msg)
 
