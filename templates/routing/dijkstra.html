@@ -1,17 +1,32 @@
 {% extends "base.html" %}
 {% set active_page = "route" %}
 
-{%- macro zone_type(zt) -%}
-{%- if  zt == "DC" -%}routes_dc{%- endif -%}
-{%- if  zt == "AD" -%}routes_ad{%- endif -%}
-{%- if  zt == "EP" -%}routes_ep{%- endif -%}
-{%- if  zt == "DLC" -%}routes_dlc{%- endif -%}
-{%- if  zt == "Expansion" -%}routes_expansion{%- endif -%}
-{%- endmacro -%}
+{% macro zone_type(zt) %}
+{% if  zt == "DC" %}routes_dc{% endif %}
+{% if  zt == "AD" %}routes_ad{% endif %}
+{% if  zt == "EP" %}routes_ep{% endif %}
+{% if  zt == "DLC" %}routes_dlc{% endif %}
+{% if  zt == "Expansion" %}routes_expansion{% endif %}
+{% endmacro %}
+{{ zone_type("AD") }}
 
 
 
-{% block title %}Route{% endblock %}
+
+{%- block title -%}
+
+    {%- if not error_message -%}
+            Route from {{ source }} to {{ target }}
+    {%- endif -%}
+
+    {%- if  error_message -%}
+            Route not found :(
+    {%- endif -%}
+
+{%- endblock -%}
+
+
+
 
 {% block head %}
     {{ super() }}
@@ -24,7 +39,6 @@
 
     {% if not error_message %}
         <h2><a href="/{{ source }}">{{ source }}</a> to <a href="/{{ target }}">{{ target }}</a></h2>
-        <h3></h3>
     {% endif %}
 
     {% if  error_message %}
