@@ -30,20 +30,20 @@
 
 {# This should list the zones in order of Type followed by Zone name Alphabetical ##}
 
-{% if zones %}
-        <p>We currently have {{zones|count}} Zones</p>
+{% if zone_info %}
+        <p>We currently have {{zone_info|count}} Zones</p>
 
 
         <div class="container mb-0 p-3 bg-dark zone-cont">
         
-        {% for zone in zones %}
+        {% for exp, zone, cities in zone_info %}
         <div class="zone zone-div mb-3">
-         <h6><b>{{ zone[1] }}</b> <span class="badge badge-secondary zone-badge {{ zone[0] }}">{{ zone[0] }}</span></h6>
-         <hr class="zone-border {{ zone[0] }}">
+         <h6 class="zone-header"><b>{{ zone }}</b> <span class="badge badge-secondary zone-badge {{ exp }}">{{ exp }}</span></h6>
+         <hr class="zone-border {{ exp }}">
 
                     <ul class="zone">
-                              {% for cities in zone[2] %}
-                        <li><a href="{{ cities }}">{{ cities }}</a></li>
+                              {% for city in cities %}
+                        <li><a href="{{ city }}">{{ city }}</a></li>
                     {% endfor %}
                     </ul>
         </div>
