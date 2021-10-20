@@ -8,8 +8,10 @@ def test_output():
 
     result = dijkstra(G, source, destination, att_label, att_npc)
 
-    criteria = [['Riften', "Davon's Watch", 'Navigators', 'Falvis Raram', 'Stonefalls', 'EP'],
-                ["Davon's Watch", 'Mournhold', 'Navigators', 'Falvis Raram', 'Deshaan', 'EP']]
+    criteria = [['Riften', "Davon's Watch", 'Navigators', 'Falvis Raram', 'The Rift', 'EP', 'Stonefalls', 'EP'],
+                ["Davon's Watch", 'Mournhold', 'Navigators', 'Falvis Raram', 'Stonefalls', 'EP', 'Deshaan', 'EP']]
+
+    # start_loc, finish_loc, type, npc, start_zone, start_zone_type, finish_zone, finish_zone_type
 
     assert result == criteria
     assert isinstance(result, list)

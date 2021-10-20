@@ -58,65 +58,74 @@ main a {
 .routes_dc {
   color: var(--dc);
 }
-.routes_dc::before {
-  content: var(--dc-image);
+.routes_dc::after {
+  content: "";
+  background-image: var(--dc-image);
 }
 
 .routes_ad {
   color: var(--ad);
 }
-.routes_ad::before {
-  content: var(--ad-image);
+.routes_ad::after {
+  content: "";
+  background-image: var(--ad-image);
 }
 
 .routes_ep {
   color: var(--ep);
 }
 
-.routes_ep::before {
-  content: var(--ep-image);
+.routes_ep::after {
+  content: "";
+  background-image: var(--ep-image);
 }
 
 .routes_dlc {
   color: var(--dlc);
 }
 
-.routes_dlc::before {
-  content: var(--dlc-image);
+.routes_dlc::after {
+  content: "";
+  background-image: var(--dlc-image);
 }
 
 .routes_expansion {
   color: var(--expansion);
 }
 
-.routes_expansion::before {
-  content: var(--expansion-image);
+.routes_expansion::after {
+  /* content: var(--expansion-image); */
+  content: "";
+  background-image: var(--expansion-image);
 }
 
 .routes_neutral {
   color: var(--neutral);
 }
-.routes_neutral::before {
-  content: var(--neutral-image);
+.routes_neutral::after {
+  content: "";
+  background-image: var(--neutral-image);
 }
 
-.routes_dc::before,
-.routes_ad::before,
-.routes_ep::before,
-.routes_dlc::before,
-.routes_neutral::before,
-.routes_expansion::before {
+.routes_dc::after,
+.routes_ad::after,
+.routes_ep::after,
+.routes_dlc::after,
+.routes_neutral::after,
+.routes_expansion::after {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
   margin-right: 5px;
-  margin-left: 3px;
+  margin-left: 5px;
   position: relative;
   top: 4px;
+  border-radius: 18px;
 }
 
-/* .zone {
-  -webkit-text-stroke-width: 0.01rem;
-  -webkit-text-fill-color: inherit;
-  -webkit-text-stroke-color: white;
-} */
+.zone {
+  font-weight: bold;
+}
 
 .zone-badge {
   float: right;
