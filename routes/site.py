@@ -45,4 +45,4 @@ def get_locations():
 @ app.route('/zones')
 def get_zones():
     """ Returns the template for zones.html and passes it the zones list """
-    return render_template('supplementary/zones.html', zones=list_for_zones)
+    return render_template('supplementary/zones.html', zone_info=list_for_zones)

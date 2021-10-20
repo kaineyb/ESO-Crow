@@ -127,8 +127,11 @@ main a {
   font-weight: bold;
 }
 
-.zone-badge {
-  float: right;
+.zone-header {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 5px;
 }
 
 .dc,
