@@ -2,13 +2,13 @@
 {% set active_page = "route" %}
 
 {% macro zone_type(zt) %}
-{% if  zt == "DC" %}routes_dc{% endif %}
-{% if  zt == "AD" %}routes_ad{% endif %}
-{% if  zt == "EP" %}routes_ep{% endif %}
-{% if  zt == "DLC" %}routes_dlc{% endif %}
-{% if  zt == "Expansion" %}routes_expansion{% endif %}
+{%- if  zt == "DC" -%}routes_dc{%- endif -%}
+{%- if  zt == "AD" -%}routes_ad{%- endif -%}
+{%- if  zt == "EP" -%}routes_ep{%- endif -%}
+{%- if  zt == "DLC" -%}routes_dlc{%- endif -%}
+{%- if  zt == "Expansion" -%}routes_expansion{%- endif -%}
+{%- if  zt == "Neutral" -%}routes_neutral{%- endif -%}
 {% endmacro %}
-{{ zone_type("AD") }}
 
 
 
@@ -46,27 +46,35 @@
         <p><strong>Error:</strong>  {{ error_message }}</p>
     {% endif %}
 
+
 <div class="container">
     {% if pairs_list %}
         <p>Route found in {{pairs_list|count}} steps</p>
-        {% for pair in pairs_list %}
+        {% for start_loc, finish_loc, type, npc, start_zone, start_zone_type, finish_zone, finish_zone_type  in pairs_list%}
 
     <div class="row bg-dark mb-2 p-2 text-white text-left">
         <div class="col-2 p-1">
             <span class="badge badge-secondary font-italic text-left">Step {{loop.index}}</span>
         </div>
         <div class="col line-height p-1 pl-2">
-            <a href="/{{ pair[0] }}">{{ pair[0] }}</a> to
-            <a href="/{{ pair[1] }}">{{ pair[1] }}</a> via 
-            <a href="https://en.uesp.net/wiki/Online:{{ pair[2] }}">{{ pair[2] }}</a>
-            (<a href="https://en.uesp.net/wiki/Online:{{ pair[3] }}">{{ pair[3] }})</a>
-            <br>{{ pair[4] }} (<span class="{{zone_type(pair[5])}}">{{ pair[5]}}</span>)
+            From: <a href="/{{ start_loc }}">{{ start_loc }}</a> - <span class="zone {{ zone_type(start_zone_type) }}">{{ start_zone }}</span>  <br>
+
+            To: <a href="/{{ finish_loc }}">{{ finish_loc }}</a> - <span class="zone {{ zone_type(finish_zone_type) }}">{{ finish_zone }}</span>
+
+            <br>
+            
+            via <a href="https://en.uesp.net/wiki/Online:{{ type }}">{{ type }}:</a>
+
+            <a href="https://en.uesp.net/wiki/Online:{{ npc }}">{{ npc }}</a>
+
+            
 
         </div>
     </div>
         {% endfor %}
     {% endif %}
 </div>
+
 
 <a href="/" class="btn btn-lg btn-secondary fly mt-4 mb-4">Another route?</a>
 <p><a href="/random_route" class="btn fly btn-secondary">Random route?</a></p>

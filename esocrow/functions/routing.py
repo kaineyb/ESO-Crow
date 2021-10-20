@@ -48,6 +48,7 @@ def dijkstra(G: DiGraph, source: str, destination: str, attribute_label: "dict[A
                 pairs_list.append(
                     [start, finish,
                      attribute_label[pairs], attribute_npc[pairs],
+                     city_zone(start), city_zone_type(start),
                      city_zone(finish), city_zone_type(finish)])
 
             if len(pairs_list) > 0:
