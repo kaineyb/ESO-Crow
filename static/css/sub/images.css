@@ -1,0 +1,9 @@
+:root {
+  --dc-image: url(/static/images/daggerfall.png);
+  --ep-image: url(/static/images/ebonheart.png);
+  --ad-image: url(/static/images/aldmeri.png);
+
+  --dlc-image: url(/static/images/dlc.png);
+  --expansion-image: url(/static/images/expansion.png);
+  --neutral-image: url(/static/images/neutral.png);
+}

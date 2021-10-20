@@ -1,16 +1,5 @@
-:root {
-  --dc: rgb(0, 100, 150);
-  --ep: rgb(165, 20, 15);
-  --ad: rgb(169, 110, 22);
-
-  --dc-image: url(/static/images/daggerfall.png);
-  --ep-image: url(/static/images/ebonheart.png);
-  --ad-image: url(/static/images/aldmeri.png);
-
-  --dlc: green;
-  --expansion: pink;
-  --neutral: lightgray;
-}
+@import url(sub/colours.css);
+@import url(sub/images.css);
 
 img {
   height: auto;
@@ -69,35 +58,65 @@ main a {
 .routes_dc {
   color: var(--dc);
 }
+.routes_dc::before {
+  content: var(--dc-image);
+}
 
 .routes_ad {
   color: var(--ad);
+}
+.routes_ad::before {
+  content: var(--ad-image);
 }
 
 .routes_ep {
   color: var(--ep);
 }
 
-.routes_dc::before,
-.routes_ad::before,
-.routes_ep::before {
-  margin-right: 5px;
-  margin-left: 5px;
-  position: relative;
-  top: 4px;
-}
-
 .routes_ep::before {
   content: var(--ep-image);
 }
 
-.routes_dc::before {
-  content: var(--dc-image);
+.routes_dlc {
+  color: var(--dlc);
 }
 
-.routes_ad::before {
-  content: var(--ad-image);
+.routes_dlc::before {
+  content: var(--dlc-image);
 }
+
+.routes_expansion {
+  color: var(--expansion);
+}
+
+.routes_expansion::before {
+  content: var(--expansion-image);
+}
+
+.routes_neutral {
+  color: var(--neutral);
+}
+.routes_neutral::before {
+  content: var(--neutral-image);
+}
+
+.routes_dc::before,
+.routes_ad::before,
+.routes_ep::before,
+.routes_dlc::before,
+.routes_neutral::before,
+.routes_expansion::before {
+  margin-right: 5px;
+  margin-left: 3px;
+  position: relative;
+  top: 4px;
+}
+
+/* .zone {
+  -webkit-text-stroke-width: 0.01rem;
+  -webkit-text-fill-color: inherit;
+  -webkit-text-stroke-color: white;
+} */
 
 .zone-badge {
   float: right;
