@@ -20,7 +20,7 @@ def init_mail(app: Flask):
     app.config.update(mail_settings)
 
     app.config.update(
-        RECAPTCHA_OPTIONS={'theme': 'dark'},
+        RECAPTCHA_DATA_ATTRS = {"theme": "dark", "size": "normal"},
 
         RECAPTCHA_PUBLIC_KEY=PUBLIC, RECAPTCHA_PRIVATE_KEY=PRIVATE
     )
