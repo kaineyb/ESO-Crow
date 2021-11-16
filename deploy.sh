@@ -9,26 +9,26 @@ function get_branch() {
 
 function deploy_development() {
     # Set Variables
-    export DEPLOYPATH=/home/arkus/python/dev_esocrow
+    export DEPLOYPATH=~/python/dev_esocrow
     # Clear Dev Directory
-    rm -r /home/arkus/python/dev_esocrow/*
+    rm -r ~/python/dev_esocrow/*
     # Copy Files over from local dev repo
-    /bin/cp -r /home/arkus/repositories/__DEV__ESO-Crow/* /home/arkus/python/dev_esocrow
+    /bin/cp -r ~/repositories/__DEV__ESO-Crow/* ~/python/dev_esocrow
     # Delete git folder
-    rm -r /home/arkus/python/dev_esocrow/.git
+    rm -r ~/python/dev_esocrow/.git
     # Tell me that it worked...!
     echo "Development Deployed!"
 }
 
 function deploy_production() {
     # Set Variables
-    export DEPLOYPATH=/home/arkus/python/esocrow
+    export DEPLOYPATH=~/python/esocrow
     # Clear Dev Directory
-    rm -r /home/arkus/python/esocrow/*
+    rm -r ~/python/esocrow/*
     # Copy Files over from local dev repo
-    /bin/cp -r /home/arkus/repositories/__LIVE__ESO-Crow/* /home/arkus/python/esocrow
+    /bin/cp -r ~/repositories/__LIVE__ESO-Crow/* ~/python/esocrow
     # Delete git folder
-    rm -r /home/arkus/python/esocrow/.git
+    rm -r ~/python/esocrow/.git
     # Tell me that it worked...!
     echo "Production Deployed!"
 }
@@ -52,4 +52,3 @@ then
     deploy_development
     
 fi
-

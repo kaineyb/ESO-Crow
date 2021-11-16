@@ -1,5 +1,7 @@
-@import url(sub/colours.css);
-@import url(sub/images.css);
+@import url(static/colours.css);
+@import url(static/images.css);
+
+@import url(pages/zones.css);
 
 img {
   height: auto;
