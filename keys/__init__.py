@@ -18,6 +18,9 @@ def get_environ():
         print("   Production Environment")
         print("  ", "*" * 20)
 
+        for key in keys:
+            print("   ", key)
+
     else:
         print("  ", "*" * 20)
         print("Environment Unknown")
@@ -28,8 +31,8 @@ PUBLIC = os.environ.get("PUBLIC_KEY")
 PRIVATE = os.environ.get("PRIVATE_KEY")
 EMAIL = os.environ.get("EMAIL_ADDRESS")
 EMAIL_PASS = os.environ.get("EMAIL_PASSWORD")
-SECRET_KEY = os.environ.get("SECRET_KEY")
+S_KEY = os.environ.get("SECRET_KEY")
 
-keys = [PUBLIC, PRIVATE, EMAIL, EMAIL_PASS, SECRET_KEY]
+keys = [PUBLIC, PRIVATE, EMAIL, EMAIL_PASS, S_KEY]
 
 get_environ()
