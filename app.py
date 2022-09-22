@@ -6,7 +6,7 @@
 
 # Built-ins
 
-import os
+import secrets
 
 from flask import Flask
 from flask_bootstrap import Bootstrap4
@@ -24,7 +24,7 @@ from contact_form.settings import init_mail
 
 app = Flask(__name__)
 
-app.config["SECRET_KEY"] = os.environ.get("NOT_A_SPECIAL_KEY")
+app.config["SECRET_KEY"] = secrets.token_urlsafe(16)
 
 bootstrap = Bootstrap4(app)
 
