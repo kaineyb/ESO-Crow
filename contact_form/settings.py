@@ -1,6 +1,6 @@
 from flask import Flask
 from flask_mail import Mail
-from keys import EMAIL, EMAIL_PASS, PRIVATE, PUBLIC
+from keys import EMAIL, EMAIL_PASS, PRIVATE, PUBLIC, SECRET_KEY
 
 
 def init_mail(app: Flask):
@@ -22,6 +22,8 @@ def init_mail(app: Flask):
         RECAPTCHA_PUBLIC_KEY=PUBLIC,
         RECAPTCHA_PRIVATE_KEY=PRIVATE,
     )
+
+    app.config.from_mapping(SECRET_KEY=SECRET_KEY)
 
     mail = Mail(app)
 
