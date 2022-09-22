@@ -1,4 +1,3 @@
-
 """ The hook for the flask app to run """
 
 ####################
@@ -7,10 +6,13 @@
 
 # Built-ins
 
+import secrets
+
+from flask import Flask
+from flask_bootstrap import Bootstrap4
+
 # Flask
 from contact_form.settings import init_mail
-from flask_bootstrap import Bootstrap
-from flask import Flask
 
 # 3rd Party
 
@@ -22,7 +24,9 @@ from flask import Flask
 
 app = Flask(__name__)
 
-bootstrap = Bootstrap(app)
+app.config["SECRET_KEY"] = secrets.token_urlsafe(16)
+
+bootstrap = Bootstrap4(app)
 
 mail = init_mail(app)
 
