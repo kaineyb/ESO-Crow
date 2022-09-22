@@ -9,8 +9,7 @@ autopep8 = "*"
 pytest = "*"
 
 [packages]
-requests = "*"
-flask = "==1.1.2"
+flask = "==2.2.*"
 networkx = "*"
 flask-wtf = "*"
 email-validator = "*"
