@@ -1,6 +1,6 @@
 from flask import Flask
 from flask_mail import Mail
-from keys import EMAIL, EMAIL_PASS, PRIVATE, PUBLIC, S_KEY
+from keys import EMAIL, EMAIL_PASS, PRIVATE, PUBLIC
 
 
 def init_mail(app: Flask):
