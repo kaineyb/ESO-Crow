@@ -11,7 +11,7 @@ from flask_bootstrap import Bootstrap
 
 # Flask
 from contact_form.settings import init_mail
-from keys import S_KEY
+from keys import SECRET_KEY
 
 # 3rd Party
 
@@ -23,7 +23,7 @@ from keys import S_KEY
 
 app = Flask(__name__)
 
-app.config["SECRET_KEY"] = S_KEY
+app.config["SECRET_KEY"] = SECRET_KEY
 
 bootstrap = Bootstrap(app)
 
