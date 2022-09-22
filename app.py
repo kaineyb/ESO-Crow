@@ -24,7 +24,7 @@ from contact_form.settings import init_mail
 
 app = Flask(__name__)
 
-# app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
+app.config["SECRET_KEY"] = os.environ.get("NOT_A_SPECIAL_KEY")
 
 bootstrap = Bootstrap4(app)
 

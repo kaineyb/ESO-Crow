@@ -32,7 +32,8 @@ PRIVATE = os.environ.get("PRIVATE_KEY")
 EMAIL = os.environ.get("EMAIL_ADDRESS")
 EMAIL_PASS = os.environ.get("EMAIL_PASSWORD")
 SECRET_KEY = os.environ.get("SECRET_KEY")
+NOT_A_SPECIAL_KEY = os.environ.get("NOT_A_SPECIAL_KEY")
 
-keys = [PUBLIC, PRIVATE, EMAIL, EMAIL_PASS, SECRET_KEY]
+keys = [PUBLIC, PRIVATE, EMAIL, EMAIL_PASS, SECRET_KEY, NOT_A_SPECIAL_KEY]
 
 get_environ()
