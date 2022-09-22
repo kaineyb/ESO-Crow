@@ -21,7 +21,6 @@ def init_mail(app: Flask):
         RECAPTCHA_DATA_ATTRS={"theme": "dark", "size": "normal"},
         RECAPTCHA_PUBLIC_KEY=PUBLIC,
         RECAPTCHA_PRIVATE_KEY=PRIVATE,
-        SECRET_KEY=S_KEY,
     )
 
     mail = Mail(app)
