@@ -6,12 +6,13 @@
 
 # Built-ins
 
+import os
+
 from flask import Flask
-from flask_bootstrap import Bootstrap
+from flask_bootstrap import Bootstrap4
 
 # Flask
 from contact_form.settings import init_mail
-from keys import SECRET_KEY
 
 # 3rd Party
 
@@ -23,9 +24,9 @@ from keys import SECRET_KEY
 
 app = Flask(__name__)
 
-app.config["SECRET_KEY"] = SECRET_KEY
+app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
 
-bootstrap = Bootstrap(app)
+bootstrap = Bootstrap4(app)
 
 mail = init_mail(app)
 
