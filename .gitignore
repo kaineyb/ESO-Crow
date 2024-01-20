@@ -2,6 +2,8 @@
 ignore_testbed.py
 tempCodeRunnerFile.py
 .pytest_cache/
+.docker-compose.prod-test.yml
+/node_modules
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
