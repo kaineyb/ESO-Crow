@@ -1,48 +1,56 @@
-from app import app
+from datetime import datetime
+
 from flask import render_template
-from esocrow.main import locations, list_for_zones
+
+from app import app
+from esocrow.main import list_for_zones, locations
 
 
-@ app.route('/')
+@app.context_processor
+def inject_current_year():
+    return {"current_year": datetime.now().year}
+
+
+@app.route("/")
 def index():
     """
     Returns the template for index.html and passes it the locations list.
     (locations list is Used for Javascript Autocomplete)
     """
-    return render_template('index.html', locations=locations)
+    return render_template("index.html", locations=locations)
 
 
-@ app.errorhandler(404)
+@app.errorhandler(404)
 def page_not_found():
-    """ Returns the template for page_not_found.html  """
-    return render_template('errors/page_not_found.html'), 404
+    """Returns the template for page_not_found.html"""
+    return render_template("errors/page_not_found.html"), 404
 
 
-@ app.route('/updates')
+@app.route("/updates")
 def updates():
-    """ Returns the template for updates.html"""
-    return render_template('site/updates.html')
+    """Returns the template for updates.html"""
+    return render_template("site/updates.html")
 
 
-@ app.route('/tip')
+@app.route("/tip")
 def tip():
-    """ Returns the template for tip.html"""
-    return render_template('site/tip.html')
+    """Returns the template for tip.html"""
+    return render_template("site/tip.html")
 
 
-@ app.route('/faq')
+@app.route("/faq")
 def faq():
-    """ Returns the template for faq.html """
-    return render_template('site/faq.html')
+    """Returns the template for faq.html"""
+    return render_template("site/faq.html")
 
 
-@ app.route('/locations')
+@app.route("/locations")
 def get_locations():
-    """ Returns the template for locations.html and passes it the locations list """
-    return render_template('supplementary/locations.html', locations=locations)
+    """Returns the template for locations.html and passes it the locations list"""
+    return render_template("supplementary/locations.html", locations=locations)
 
 
-@ app.route('/zones')
+@app.route("/zones")
 def get_zones():
-    """ Returns the template for zones.html and passes it the zones list """
-    return render_template('supplementary/zones.html', zone_info=list_for_zones)
+    """Returns the template for zones.html and passes it the zones list"""
+    return render_template("supplementary/zones.html", zone_info=list_for_zones)
