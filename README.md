@@ -17,3 +17,5 @@ EMAIL_ADDRESS: str
 EMAIL_PASSWORD: str
 
 SECRET_KEY: str
+
+run with `docker compose up`
