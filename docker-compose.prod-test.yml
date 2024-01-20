@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  production:
+    environment:
+      ENVIRON_TYPE: ${ENVIRON_TYPE}
+      PUBLIC_KEY: ${PUBLIC_KEY}
+      PRIVATE_KEY: ${PRIVATE_KEY}
+      EMAIL_ADDRESS: ${EMAIL_ADDRESS}
+      EMAIL_PASSWORD: ${EMAIL_PASSWORD}
+      SECRET_KEY: ${SECRET_KEY}
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+
+    ports:
+      - 5000:5000
